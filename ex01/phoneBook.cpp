@@ -20,9 +20,9 @@ void    contact::setPhoneNumber(std::string s)
     phoneNumber = s;
 }
 
-void    contact::setDarkSecret(std::string s)
+void    contact::setDarkestSecret(std::string s)
 {
-    darkSecret = s;
+    darkestSecret = s;
 }
 
 std::string  contact::getFirstName(void)
@@ -45,9 +45,9 @@ std::string  contact::getNumberPhone(void)
     return (phoneNumber);
 }
 
-std::string  contact::getDarkSecret(void)
+std::string  contact::getDarkestSecret(void)
 {
-    return (darkSecret);
+    return (darkestSecret);
 }
 
 contact::contact()
@@ -56,13 +56,10 @@ contact::contact()
     setLastName("");
     setNickName("");
     setPhoneNumber("");
-    setDarkSecret("empty");
+    setDarkestSecret("");
 }
 
-contact::~contact()
-{
-    //cout << "weeee" << "\n";
-}
+contact::~contact(){}
 
 void    phoneBook::setLastElem(void)
 {
@@ -114,38 +111,10 @@ void    phoneBook::addContact(void)
     std::getline(std::cin, data[1]);
     std::cout << "Enter the nick name:\n"; 
     std::getline(std::cin, data[2]);
-    std::cout << "Enter the dark secrit:\n";
+    std::cout << "Enter the dark secret:\n";
     std::getline(std::cin, data[4]);
-    std::cout << "Enter the number phone (only numbers):\n";
-    i = 0;
-    j = 0;
-    while (j < 3)
-    {
-        flag = 0;
-        std::getline(std::cin, data[3]);
-        while (i < data[3].length())
-        {
-            if (isdigit(data[3][i]) != 1)
-            {
-                if (j == 2)
-                {
-                    std::cerr << "this contact is discarded !!" << std::endl;
-                    return ;
-                }
-                else
-                {
-                    std::cout << "Phone number is a conbinition of numbers pls!!" << std::endl;
-                    std::cout << "Enter the number phone:\n";
-                }
-                flag = 1;
-                break;
-            }
-            i++;
-        }
-        j++;
-        if (flag == 0 || j == 3)
-            break;
-    }
+    std::cout << "Enter the number phone:\n";
+    std::getline(std::cin, data[3]);
     if (data[0].length() == 0 || data[1].length() == 0 || data[2].length() == 0
         || data[3].length() == 0 || data[4].length() == 0)
         return;
@@ -153,9 +122,18 @@ void    phoneBook::addContact(void)
     cnt[lastElem].setLastName(data[1]);
     cnt[lastElem].setNickName(data[2]);
     cnt[lastElem].setPhoneNumber(data[3]);
-    cnt[lastElem].setDarkSecret(data[4]);
+    cnt[lastElem].setDarkestSecret(data[4]);
     setLastElem();
     setNumberOfElem();
+}
+
+
+void    displaySting(std::string s)
+{
+    if (s.length() > 10)
+        std::cout << std::right << std::setw(9) << s.substr(0, 9) << ".";        
+    else
+        std::cout << std::right << std::setw(10) << s;
 }
 
 void    phoneBook::searchContact(void)
@@ -170,15 +148,15 @@ void    phoneBook::searchContact(void)
     std::cout << std::right << std::setw(10) << "FirstName" << "|";
     std::cout << std::right << std::setw(10) << "LastName" << "|";
     std::cout << std::right << std::setw(10) << "NickName" << "\n";
-    while (i < 8)
+    while (i < numberOfElem)
     {
-        if (cnt[i].getFirstName().length() != 0)
-        {
-            std::cout << std::right << std::setw(10) << i << "|";
-            std::cout << std::right << std::setw(10) << cnt[i].getFirstName() << "|";
-            std::cout << std::right << std::setw(10) << cnt[i].getLastName() << "|";
-            std::cout << std::right << std::setw(10) << cnt[i].getNickName() << "\n";
-        }
+        std::cout << std::right << std::setw(10) << i << "|";
+        displaySting(cnt[i].getFirstName());
+        std::cout << "|";
+        displaySting(cnt[i].getLastName());
+        std::cout << "|";
+        displaySting(cnt[i].getNickName());
+        std::cout << "\n";
         i++;
     }
     std::getline(std::cin, buff);
@@ -190,11 +168,11 @@ void    phoneBook::searchContact(void)
     index = stoi(buff);
     if (index + 1 <= numberOfElem && index + 1 > 0)
     {
-        std::cout << std::right << std::setw(10) << cnt[index].getFirstName() << "|";
-        std::cout << std::right << std::setw(10) << cnt[index].getLastName() << "|";
-        std::cout << std::right << std::setw(10) << cnt[index].getNickName() << "|";
-        std::cout << std::right << std::setw(10) << cnt[index].getNumberPhone() << "|";
-        std::cout << std::right << std::setw(10) << cnt[index].getDarkSecret() << "\n";
+        std::cout << "FirstName:     " << cnt[index].getFirstName() << "\n";
+        std::cout << "LastName:      " << cnt[index].getLastName() << "\n";
+        std::cout << "NickName:      " << cnt[index].getNickName() << "\n";
+        std::cout << "PhoneNumber:   " << cnt[index].getNumberPhone() << "\n";
+        std::cout << "DarkestSecret: " << cnt[index].getDarkestSecret() << "\n";
     }
 }
 
@@ -209,7 +187,4 @@ phoneBook::phoneBook()
     numberOfElem = 0;
 }
 
-phoneBook::~phoneBook()
-{
-    //cout << "weeee" << "\n";
-}
+phoneBook::~phoneBook(){}
