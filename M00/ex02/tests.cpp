@@ -6,7 +6,7 @@
 //                Made by : Brad "Buddy" McLane <bm@gbu.com>                  //
 //                                                                            //
 // ************************************************************************** //
-
+/*
 #include <vector>
 #include <algorithm>
 #include <functional>
@@ -62,7 +62,7 @@ int		main( void ) {
 
 	return 0;
 }
-
+*/
 
 // ************************************************************************** //
 // vim: set ts=4 sw=4 tw=80 noexpandtab:                                      //
