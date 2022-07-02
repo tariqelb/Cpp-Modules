@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/tel-bouh/Desktop/cpp26'
 make: Leaving directory `/Users/tel-bouh/Desktop/cpp26'
  
