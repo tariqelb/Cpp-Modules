@@ -162,7 +162,7 @@ void    phoneBook::searchContact(void)
     std::getline(std::cin, buff);
     if (isStringOfDigit(buff) == 0)
     {
-        std::cout << "wrong index search operation is done bay\n";
+        std::cout << "wrong index search operation is done.\n";
         return ;
     }
     index = stoi(buff);

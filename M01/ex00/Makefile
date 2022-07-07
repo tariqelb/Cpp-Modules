@@ -1,15 +1,15 @@
 NAME = Zombie
 
-SRCS = ./Zombie.cpp ./newZombie.cpp ./randomChump.cpp ./main.cpp
+SRCS = ./Zombie.cpp ./main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
-FLAGS = -Wextra -Werror -Wall
+FLAGS = -Wextra -Werror -Wall -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	g++ $(FALGS) $(OBJ) -o $(NAME)
+	c++ $(FALGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

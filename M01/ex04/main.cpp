@@ -6,13 +6,18 @@ int main(int ac, char **av)
     
     if (ac != 4)
     {
-        std::cerr << "invalide number of arguments\n";
+        std::cerr << "Unvalide number of arguments\n";
         return (1);
+    }
+    if (av[1][0] == 0 || av[2][0] == 0 || av[3][0] == 0)
+    {
+        std::cerr << "Argument can't be empty string\n";
+        return (1); 
     }
     fileObj.inFd.open(av[1], std::ios::in);
     if (!fileObj.inFd.is_open())
     {
-        std::cerr << "error in file openoing\n";
+        std::cerr << "error in file opening\n";
         return (1);
     }
     fileObj.outFd.open("output.replace", std::ios::out);

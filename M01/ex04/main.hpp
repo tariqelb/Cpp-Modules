@@ -8,13 +8,14 @@
 class sed
 {
     public:
-        std::ifstream inFd;
-        std::ofstream outFd;
-        std::string         s1;
-        std::string         s2;
-        std::string         buff;
+        std::ifstream   inFd;
+        std::ofstream   outFd;
+        std::string     s1;
+        std::string     s2;
+        std::string     buff;
 };
 
 void    sedFun(sed* fileObj);
+void    operation(std::string buff);
 
 #endif

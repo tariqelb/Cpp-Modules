@@ -8,6 +8,8 @@ int main()
     std::cout << "Available commands is : [ADD], [SEARCH], [EXIT]\n";
     std::cout << "Enter Your Command:\n";
     std::getline(std::cin, cmd);
+    if (std::cin.eof())
+        return (0);
     while (1)
     {
         if (cmd.compare("ADD") == 0)
@@ -18,6 +20,8 @@ int main()
             p.exitPrograme();
         std::cout << "Enter Your Command:\n";
         std::getline(std::cin, cmd);
+        if (std::cin.eof())
+            return (0);
     }
     return (0);
 }

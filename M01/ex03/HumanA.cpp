@@ -7,7 +7,7 @@ std::string    HumanA::getName(void)
 }
 
 void    HumanA::attack(void)
-{
+{    
     std::cout << getName() << " attacks with their " << weapon.getType() << "\n";
 }
 

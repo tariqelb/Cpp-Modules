@@ -1,37 +1,56 @@
 #include "main.hpp"
 
-void    sedFun(sed* fileObj)
+#include <sstream>
+
+void    operation(std::string buff, int len)
 {
-    int i;
-    char ch;
+    char    *split;
+    char    str[len + 1];
+    int     i;
 
     i = 0;
-    fileObj->buff = "";
-    while (!fileObj->inFd.eof())
-    {   
-        fileObj->inFd >> std::noskipws >> ch;
-        if (fileObj->inFd.fail())
-            return;
-        else if (isspace(ch))
-        {
-            if (fileObj->buff.compare(fileObj->s1) == 0)
-                {
-                    fileObj->outFd << fileObj->s2;
-                }
-            else
-                fileObj->outFd << fileObj->buff;
-            fileObj->outFd << ch;
-            fileObj->buff = "";
-        }
-        else
-            fileObj->buff += ch;
-        ch = 0;
-    }
-    if (fileObj->buff.length() != 0)
+    strcpy(str, buff.c_str());
+
+    split = strtok(str, "\t\n\v\r ");     
+    while (split != NULL)
     {
-       if (fileObj->buff.compare(fileObj->s1) == 0)
-            fileObj->outFd << fileObj->s2;
+        std::cout << split;
+        split = strtok(NULL, "\t\n\v\r ");
+        i++;
+    }
+    while (split[i])
+    {
+        std::cout << split[i];
+        i++;
+    }
+}
+
+void    sedFun(sed* fileObj)
+{
+    int                 i;
+    std::stringstream   buffer;
+    std::string         buff;
+
+    buffer << fileObj->inFd.rdbuf();
+    i = 0;
+    int index;
+    fileObj->buff = buffer.str();
+    while (std::getline(buffer, buff))
+    {
+        
+        operation(buff, buff.length());
+        /*
+        if (index = (buff.find(fileObj->s1) != nows))
+            std::cout << "found\n";
         else
-            fileObj->outFd << fileObj->buff; 
+            std::cout << "not found\n";*/
+        //if (isspace(fileObj->buff[i]))
+         //   std::cout << fileObj->buff[i];
+
+        /*std::cout << buff.find(fileObj->s1);
+        std::cout << "[" << buff << "]" << "{" << buff.length() << "}";
+        
+        //else
+        //    std::cout << "{{" << fileObj->buff[i] << " " << i << "}} ";*/
     }
 }

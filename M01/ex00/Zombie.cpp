@@ -17,9 +17,7 @@ void    Zombie::announce(void)
 
 Zombie* newZombie(std::string name)
 {
-    Zombie* zom = new Zombie;
-
-    zom->setName(name);
+    Zombie* zom = new Zombie(name);
     return (zom);
 }
 
@@ -30,12 +28,13 @@ void    randomChump(std::string name)
     zom.announce();
 }
 
-Zombie::Zombie()
+Zombie::Zombie(std::string zName):name(zName)
 {
-
 }
+
+Zombie::Zombie(){}
 
 Zombie::~Zombie()
 {
-    std::cout << getName() << "  is died\n";
+    std::cout << getName() << ": is died\n";
 }

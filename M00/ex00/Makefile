@@ -4,7 +4,7 @@ SRC = ./megaphone.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-FLAGS = -Wextra -Werror -Wall
+FLAGS = -Wextra -Werror -Wall -std=c++98
 
 all: $(NAME)
 

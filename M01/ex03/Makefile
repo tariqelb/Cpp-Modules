@@ -4,7 +4,7 @@ SRCS = ./main.cpp ./Weapon.cpp ./HumanA.cpp ./HumanB.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
-FLAGS = -Wextra -Werror -Wall
+FLAGS = -Wextra -Werror -Wall -std=c++98
 
 all: $(NAME)
 

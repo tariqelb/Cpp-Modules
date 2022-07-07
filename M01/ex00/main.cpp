@@ -10,6 +10,8 @@ int main(void)
     z2 = newZombie("bar");
     z1.announce();
     z2->announce();
+    z2->setName("bar change here name");
+    z2->announce();
     delete z2;
     return (0);
 }
