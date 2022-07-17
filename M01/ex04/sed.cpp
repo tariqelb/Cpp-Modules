@@ -25,32 +25,48 @@ void    operation(std::string buff, int len)
     }
 }
 
+std::string    replacestring(sed *fileObj, std::string buff)
+{
+    int pos;
+    int repLen;
+    int buffLen;
+    int s1Len;
+
+    repLen = fileObj->s2.length();
+    pos = 0;
+    buffLen = buff.length();
+    s1Len = fileObj->s1.length();
+    pos = buff.find(fileObj->s1);
+    while (pos != -1) 
+    {
+        buff = buff.substr(0, pos) + fileObj->s2 + buff.substr(pos + s1Len, buff.length());
+        pos = buff.find(fileObj->s1);
+    }
+    return (buff);
+}
+
 void    sedFun(sed* fileObj)
 {
+    int                 len;
     int                 i;
     std::stringstream   buffer;
     std::string         buff;
 
     buffer << fileObj->inFd.rdbuf();
+    len = 0;
     i = 0;
     int index;
     fileObj->buff = buffer.str();
     while (std::getline(buffer, buff))
     {
-        
-        operation(buff, buff.length());
-        /*
-        if (index = (buff.find(fileObj->s1) != nows))
-            std::cout << "found\n";
+        if (i == 0)
+            len = buff.length() + len;
         else
-            std::cout << "not found\n";*/
-        //if (isspace(fileObj->buff[i]))
-         //   std::cout << fileObj->buff[i];
-
-        /*std::cout << buff.find(fileObj->s1);
-        std::cout << "[" << buff << "]" << "{" << buff.length() << "}";
-        
-        //else
-        //    std::cout << "{{" << fileObj->buff[i] << " " << i << "}} ";*/
+            len = len + buff.length() + 1; 
+        i++;
+        buff = replacestring(fileObj, buff);
+        fileObj->outFd << buff;
+        if (fileObj->buff[len] == '\n')
+            fileObj->outFd << "\n";
     }
 }

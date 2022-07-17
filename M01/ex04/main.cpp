@@ -3,7 +3,11 @@
 int main(int ac, char **av)
 {
     sed fileObj;
-    
+    std::string outputName;
+    std::string rep;
+
+    rep = ".replace";
+
     if (ac != 4)
     {
         std::cerr << "Unvalide number of arguments\n";
@@ -20,7 +24,8 @@ int main(int ac, char **av)
         std::cerr << "error in file opening\n";
         return (1);
     }
-    fileObj.outFd.open("output.replace", std::ios::out);
+    outputName = av[1] + rep;
+    fileObj.outFd.open(outputName, std::ios::out);
     if (!fileObj.outFd.is_open())
     {
         fileObj.inFd.close();
