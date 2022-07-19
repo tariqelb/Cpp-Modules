@@ -1,5 +1,7 @@
 #include "fixed.hpp"
 
+// class member functions ----------------------------------
+
 int	Fixed::toInt(void) const
 {
 	return ((int) (fixedPoint >> fractalBit));
@@ -19,6 +21,10 @@ void	Fixed::setRawBits(int const raw)
 {
 	fixedPoint = raw;
 }
+
+//----------------------------------------------------------
+
+// orthodox canonical class form --------------------------------------
 
 Fixed::Fixed()
 {
@@ -40,11 +46,6 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 	return (*this);
 }
 
-Fixed::~Fixed()
-{
-	std::cout << "Distructor called\n";
-}
-
 Fixed::Fixed(int const fp)
 {
 	std::cout << "Int constructor called\n";
@@ -57,11 +58,24 @@ Fixed::Fixed(float const fp)
 	fixedPoint = (int) (roundf(fp * (1 << fractalBit)));
 }
 
+Fixed::~Fixed()
+{
+	std::cout << "Distructor called\n";
+}
+
+//-------------------------------------------------------------------------
+
+// ostream function ------------------------------------------------
+
 std::ostream &operator<<(std::ostream& outStream, const Fixed& fixed)
 {
 	outStream << fixed.toFloat();
 	return (outStream);
 }
+
+//------------------------------------------------------------------
+
+// overload operator members ------------------------------------------------------------------
 
 bool	Fixed::operator==(const Fixed& rhs) const
 {
@@ -125,13 +139,52 @@ bool	Fixed::operator<=(const Fixed& rhs) const
 	else
 		return (false);
 }
-/*
-Fixed&	Fixed::operator*(const Fixed& rhs)
+
+//------------------------------------------------------------------------------------------
+
+// overload arithmetic functions -----------------------------------------------------------
+
+Fixed	Fixed::operator*(const Fixed& rhs)
 {
 	std::cout << "arithmetic '*' operator\n";
-	return this(this->fixedPoint * rhs.fixedPoint);
+	Fixed	temp(this->toFloat() * rhs.toFloat());	
+	return (temp);
 }
-*/
+
+Fixed	Fixed::operator/(const Fixed& rhs)
+{
+	std::cout << "arithmetic '/' operator\n";
+	if (rhs.toFloat() == 0)
+	{
+		Fixed temp(0);
+		std::cout << "Error division by zero\n";
+		return (temp);
+	}
+	else
+	{
+		Fixed	temp(this->toFloat() / rhs.toFloat());
+		return (temp);
+	}
+}
+
+Fixed	Fixed::operator+(const Fixed& rhs)
+{
+	std::cout << "arithmetic '+' operator\n";
+	Fixed	temp(this->toFloat() + rhs.toFloat());	
+	return (temp);
+}
+
+Fixed	Fixed::operator-(const Fixed& rhs)
+{
+	std::cout << "arithmetic '-' operator\n";
+	Fixed	temp(this->toFloat() - rhs.toFloat());	
+	return (temp);
+}
+
+//-----------------------------------------------------------------------------------------
+
+// comparision operators ----------------------------------------------------------------
+
 Fixed&	Fixed::operator++()
 {
 	this->fixedPoint++;
@@ -160,3 +213,43 @@ Fixed	Fixed::operator--(int)
 	return (temp);
 }
 
+//-------------------------------------------------------------------------------------------------
+
+
+// min max static member functions------------------------------------------------------------------
+
+
+const Fixed& Fixed::constMin(const Fixed& rhs, const Fixed& lhs)
+{
+	if (rhs.toFloat() < lhs.toFloat())
+		return (rhs);
+	else
+		return (lhs);
+}
+	
+Fixed& Fixed::Min(Fixed& rhs, Fixed& lhs)
+{
+	if (rhs.toFloat() < lhs.toFloat())
+		return (rhs);
+	else
+		return (lhs);
+}
+
+const Fixed& Fixed::constMax(const Fixed& rhs, const Fixed& lhs)
+{
+	if (rhs.toFloat() > lhs.toFloat())
+		return (rhs);
+	else
+		return (lhs);
+}
+
+Fixed& Fixed::Max(Fixed& rhs, Fixed& lhs)
+{
+	if (rhs.toFloat() > lhs.toFloat())
+		return (rhs);
+	else
+		return (lhs);
+}
+
+
+// ----------------------------------------------------------------------------------------------------

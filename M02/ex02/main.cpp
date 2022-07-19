@@ -55,15 +55,29 @@ int	main( void )
 	std::cout << "a " << a << std::endl;*/
 	
 	Fixed a;
-//	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed n(0.25f);
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed const c( Fixed( 5.05f ) / Fixed( 2 ) );
+	Fixed const d( Fixed( 5.05f ) + Fixed( 2 ) );
+	Fixed const e( Fixed( 5.05f ) - Fixed( 2 ) );
 	std::cout << a << std::endl;
 	std::cout << ++a << std::endl;
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	
-//	std::cout << b << std::endl;	
+	std::cout << "a = " << a << std::endl;	
+	std::cout << "n = " << n << std::endl;	
+	std::cout << "b = " << b << std::endl;	
+	std::cout << "c = " << c << std::endl;	
+	std::cout << "d = " << d << std::endl;	
+	std::cout << "e = " << e << std::endl;	
 	
+	std::cout << "--> " << Fixed::constMin(b, c) << std::endl;
+	std::cout << "--> " << Fixed::Min(a, n) << std::endl;
+	std::cout << "--> " << Fixed::constMax(b, c) << std::endl;
+	std::cout << "--> " << Fixed::Max(a, n) << std::endl;
+
 
 	return 0;
 }
