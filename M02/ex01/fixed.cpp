@@ -29,8 +29,7 @@ Fixed::Fixed()
 Fixed::Fixed(const Fixed& rhs)
 {
 	std::cout << "Copy constructor called\n";
-	this->fixedPoint = rhs.getRawBits();;
-	//this->fixedPoint = rhs.fixedPoint;
+	*this = rhs;
 }
 
 Fixed& Fixed::operator=(const Fixed& rhs)
@@ -43,18 +42,18 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 
 Fixed::~Fixed()
 {
-	std::cout << "Distructor is called\n";
+	std::cout << "Distructor called\n";
 }
 
 Fixed::Fixed(int const fp)
 {
-	std::cout << "Int constructor is called\n";
+	std::cout << "Int constructor called\n";
 	fixedPoint = fp << fractalBit;
 }
 
 Fixed::Fixed(float const fp)
 {
-	std::cout << "Float constructor is called\n";
+	std::cout << "Float constructor called\n";
 	fixedPoint = (int) (roundf(fp * (1 << fractalBit)));
 }
 
