@@ -8,5 +8,9 @@ int	main(void)
 	saw.attack("Law");
 	law.takeDamage(10);
 	law.beRepaired(10);
+	saw.attack("Law");
+	law.takeDamage(10);
+	law.beRepaired(10);
+
 	return (0);
 }

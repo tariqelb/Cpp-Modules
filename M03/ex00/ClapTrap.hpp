@@ -19,7 +19,7 @@ class ClapTrap
 	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& rhs);
-	ClapTrap& operator=(const ClapTrap& rhs)
+	ClapTrap& operator=(const ClapTrap& rhs);
 	~ClapTrap();	
 };
 
