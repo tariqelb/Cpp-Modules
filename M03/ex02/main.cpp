@@ -1,9 +1,9 @@
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap law("Law");
-	ClapTrap saw("Saw");
+	FragTrap law("Law");
+	FragTrap saw("Saw");
 	
 	std::cout << "----------- Round one ------------" << std::endl;
 	saw.attack("Law");
@@ -23,7 +23,7 @@ int	main(void)
 	saw.beRepaired(10);
 
 	std::cout << "----------- the end ------------" << std::endl;
-	
+	saw.highFivesGuys();
 
 	return (0);
 
