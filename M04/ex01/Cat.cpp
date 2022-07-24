@@ -48,7 +48,7 @@ const std::string&	Cat::getType() const
 	return (this->type);
 }
 
-Brain*	Cat::getBrain() const
+Brain*	&Cat::getBrain()
 {
 	return (this->br);
 }

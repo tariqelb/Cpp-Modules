@@ -54,3 +54,11 @@ std::string	Brain::getIdea(int index) const
 	else
 		return ("Index out of range");
 }
+
+void	Brain::setIdea(int index, std::string name)
+{
+	if (index >= 0 && index < 100)
+	{
+		this->ideas[index] = name;
+	}
+}

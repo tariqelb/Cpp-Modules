@@ -10,7 +10,8 @@ class	Brain
 	
 	public :
 		std::string	getIdea(int index) const;
-	
+		void		setIdea(int index, std::string name);
+
 	Brain();
 	Brain(std::string type[100]);
 	Brain(const Brain& rhs);

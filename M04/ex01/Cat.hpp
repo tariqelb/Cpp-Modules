@@ -9,9 +9,9 @@ class Cat : public Animal
 		Brain* br;
 
 	public :
-		void			makeSound(void) const;
+		void				makeSound(void) const;
 		const std::string&	getType() const;
-		Brain*			getBrain() const;
+		Brain*				&getBrain();
 
 	Cat();
 	Cat(std::string type);

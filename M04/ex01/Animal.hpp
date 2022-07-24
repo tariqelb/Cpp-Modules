@@ -12,7 +12,7 @@ class Animal
 	public :
 		virtual void		makeSound(void) const;
 		const std::string&	getType() const;
-		virtual Brain*		getBrain() const = 0;
+		virtual Brain*		&getBrain() = 0;
 
 	Animal();
 	Animal(std::string type);
