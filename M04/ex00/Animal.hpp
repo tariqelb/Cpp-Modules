@@ -9,9 +9,8 @@ class Animal
 		std::string	type;
 	
 	public :
-		virtual void				makeSound(void) const;
-		virtual const std::string&	getType() const;
-		virtual void				setType(std::string type);
+		virtual void		makeSound(void) const;
+		const std::string&	getType() const;
 
 	Animal();
 	Animal(std::string type);

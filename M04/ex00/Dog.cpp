@@ -44,8 +44,3 @@ const std::string&	Dog::getType() const
 {
 	return (type);
 }
-
-void	Dog::setType(std::string type)
-{
-	this->type = type;
-}

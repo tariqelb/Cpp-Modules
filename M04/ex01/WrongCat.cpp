@@ -38,12 +38,7 @@ void	WrongCat::makeSound(void) const
 	std::cout << "Make WrongCat sound" << std::endl;
 }
 
-const std::string	WrongCat::getType(void) const
+const std::string&	WrongCat::getType(void) const
 {
 	return (this->type);
-}
-
-void	WrongCat::setType(std::string type)
-{
-	this->type = type;
 }

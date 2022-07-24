@@ -35,16 +35,11 @@ Animal::~Animal()
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "There is no stundard " << this->getType();
-	std::cout << " voice, but you can imagine it" << std::endl;
+	std::cout << "There is no stundard Animal";
+	std::cout << " sound, but you can imagine it" << std::endl;
 }
 
 const std::string&	Animal::getType() const
 {
 	return (type);
-}
-
-void	Animal::setType(std::string type)
-{
-	this->type = type;
 }

@@ -40,7 +40,7 @@ Dog::~Dog()
 
 void	Dog::makeSound(void) const
 {
-	std::cout << "Make " << this->getType() << " Sound" << std::endl;
+	std::cout << "Make Dog  Sound" << std::endl;
 }
 
 const std::string&	Dog::getType() const
@@ -48,7 +48,7 @@ const std::string&	Dog::getType() const
 	return (type);
 }
 
-void	Dog::setType(std::string type)
+Brain*	Dog::getBrain() const
 {
-	this->type = type;
+	return (this->br);
 }

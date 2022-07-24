@@ -44,8 +44,3 @@ const std::string&	Cat::getType() const
 {
 	return (this->type);
 }
-
-void	Cat::setType(std::string type)
-{
-	this->type = type;
-}

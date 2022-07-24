@@ -2,6 +2,7 @@
 # define ANIMAL_H
 
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal 
 {
@@ -9,9 +10,9 @@ class Animal
 		std::string	type;
 	
 	public :
-		virtual void				makeSound(void) const;
-		virtual const std::string&	getType() const;
-		virtual void				setType(std::string type);
+		virtual void		makeSound(void) const;
+		const std::string&	getType() const;
+		virtual Brain*		getBrain() const = 0;
 
 	Animal();
 	Animal(std::string type);

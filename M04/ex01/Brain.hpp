@@ -9,6 +9,7 @@ class	Brain
 		std::string	ideas[100];
 	
 	public :
+		std::string	getIdea(int index) const;
 	
 	Brain();
 	Brain(std::string type[100]);

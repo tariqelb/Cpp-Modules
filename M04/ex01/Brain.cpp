@@ -47,3 +47,10 @@ Brain::~Brain()
 	std::cout << "Destructor of Brain called" << std::endl;
 }
 
+std::string	Brain::getIdea(int index) const
+{
+	if (index >= 0 && index < 100)
+		return (this->ideas[index]);
+	else
+		return ("Index out of range");
+}

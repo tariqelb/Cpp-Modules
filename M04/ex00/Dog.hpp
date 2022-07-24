@@ -4,9 +4,8 @@
 class Dog : public Animal
 {
 	public :
-		void				makeSound(void) const;
-		const std::string&	getType() const;	
-		void				setType(std::string type);	
+		void			makeSound(void) const;
+		const std::string&	getType() const;
 
 	Dog();
 	Dog(std::string type);

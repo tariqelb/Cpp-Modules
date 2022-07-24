@@ -40,7 +40,7 @@ Cat::~Cat()
 
 void	Cat::makeSound(void) const
 {
-	std::cout << "Make " << this->getType() << " Sound" << std::endl;
+	std::cout << "Make Cat Sound" << std::endl;
 }
 
 const std::string&	Cat::getType() const
@@ -48,7 +48,7 @@ const std::string&	Cat::getType() const
 	return (this->type);
 }
 
-void	Cat::setType(std::string type)
+Brain*	Cat::getBrain() const
 {
-	this->type = type;
+	return (this->br);
 }

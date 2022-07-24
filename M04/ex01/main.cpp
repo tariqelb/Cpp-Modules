@@ -7,48 +7,39 @@
 
 int	main()
 {
-	Animal* a[100];
-	Animal* b[100];
+	Animal* a[10];
 	int index;
 	
 	std::cout << "----------------------------------" << std::endl;
 
 	index = 0;
-	while (index < 100)
+	while (index < 10)
 	{
-		if (index < 50)
+		if (index < 5)
 			a[index] = new Cat();
 		else
 			a[index] = new Dog();
-		b[index] = a[index];
 		index++;
 	}
 
 	std::cout << "----------------------------------" << std::endl;
 	index = 0;
-	while (index < 100)
-	{
-		b[index]->setType("Zombie");
-		index++;
-	}
-	std::cout << "----------------------------------" << std::endl;
-	index = 0;
-	while (index < 100)
+	while (index < 10)
 	{
 		a[index]->makeSound();
-		std::cout << "b -> ";
-		b[index]->makeSound();
-		//std::cout << &a[index] <<  "  " << &b[index] << std::endl;
 		index++;
 	}
 
+	std::cout << "----------------------------------" << std::endl;
+	Brain br;
+	br = &a[1]->getBrain();
+	
 	std::cout << "----------------------------------" << std::endl;
 	
 	index = 0;
-	while (index < 100)
+	while (index < 10)
 	{
 		delete a[index];
-		delete b[index];
 		index++;
 	}
 

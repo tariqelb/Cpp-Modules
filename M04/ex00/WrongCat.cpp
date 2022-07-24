@@ -42,8 +42,3 @@ const std::string	WrongCat::getType(void) const
 {
 	return (this->type);
 }
-
-void	WrongCat::setType(std::string type)
-{
-	this->type = type;
-}

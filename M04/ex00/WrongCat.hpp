@@ -7,9 +7,8 @@
 class WrongCat : public WrongAnimal
 {
 	public :
-		void				makeSound(void) const;
-		const	std::string	getType(void) const;
-		void				setType(std::string type);
+		void			makeSound(void) const;
+		const std::string	getType(void) const;
 
 	WrongCat();
 	WrongCat(std::string type);

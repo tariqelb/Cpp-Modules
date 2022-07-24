@@ -9,9 +9,8 @@ class WrongAnimal
 		std::string	type;
 
 	public :
-		void					makeSound(void) const;
-		const std::string		getType(void) const;
-		void					setType(std::string type);
+		void			makeSound(void) const;
+		const std::string&	getType(void) const;
 
 	WrongAnimal();
 	WrongAnimal(std::string type);
