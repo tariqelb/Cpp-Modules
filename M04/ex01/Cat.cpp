@@ -6,12 +6,14 @@ Cat::Cat()
 {
 	std::cout << "Default Cat constructor called" << std::endl;
 	this->type = "Cat";
+	this->br = new Brain;
 }
 
 Cat::Cat(std::string type)
 {
 	std::cout << "Overload Cat constructor called" << std::endl;
 	this->type = type;
+	this->br = new Brain;
 }
 
 Cat::Cat(const Cat& rhs)
@@ -33,11 +35,12 @@ Cat&	Cat::operator=(const Cat& rhs)
 Cat::~Cat()
 {
 	std::cout << "Destructor of Cat called" << std::endl;
+	delete this->br;
 }
 
 void	Cat::makeSound(void) const
 {
-	std::cout << "Make Cat Sound" << std::endl;
+	std::cout << "Make " << this->getType() << " Sound" << std::endl;
 }
 
 const std::string&	Cat::getType() const

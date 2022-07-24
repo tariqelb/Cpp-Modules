@@ -1,8 +1,13 @@
 #ifndef DOG_H
 # define DOG_H
 
+# include "Brain.hpp"
+
 class Dog : public Animal
 {
+	private :
+		Brain* br;
+
 	public :
 		void				makeSound(void) const;
 		const std::string&	getType() const;	
