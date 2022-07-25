@@ -40,16 +40,17 @@ int	main()
 	a[6]->getBrain()->setIdea(5, "no way");
 
 	std::cout << "----------------------------------" << std::endl;
-	Dog* cp = new Dog();	
-	cp = ((Dog *)a[6]);
-	Brain *br = cp->getBrain();
-	br->setIdea(0, "Art Store");
-	br->setIdea(1, "craft workers");
-	br->setIdea(2, "Handcraft job app");
-	br->setIdea(3, "eassy  to get a handcraft man");
-	br->setIdea(4, "Promotion space for a handcraft man");
-	br->setIdea(5, "Go to zero, and think again");
+	Dog* cp = new Dog();;
+	*cp = *((Dog *)a[6]);
 	
+	std::cout << "-------------iiii---------------------" << std::endl;
+	cp->getBrain()->setIdea(0, "Art Store");
+	cp->getBrain()->setIdea(1, "craft workers");
+	cp->getBrain()->setIdea(2, "Handcraft job app");
+	cp->getBrain()->setIdea(3, "eassy  to get a handcraft man");
+	cp->getBrain()->setIdea(4, "Promotion space for a handcraft man");
+	cp->getBrain()->setIdea(5, "Go to zero, and think again");
+
 	std::cout << "----------------------------------" << std::endl;
 	
 	std::cout << a[6]->getBrain()->getIdea(0) << std::endl;
@@ -84,5 +85,6 @@ int	main()
 		index++;
 	}
 	std::cout << "----------------------------------" << std::endl;
+	delete cp;
 	return 0;	
 }
