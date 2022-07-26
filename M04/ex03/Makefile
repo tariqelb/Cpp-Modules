@@ -1,6 +1,6 @@
 NAME = Interface
 
-SRCS = ./main.cpp ./AMateria.cpp ./ice.cpp ./cure.cpp ./ICharacter.cpp ./IMateriaSource.cpp
+SRCS = ./main.cpp ./AMateria.cpp ./Ice.cpp ./Cure.cpp ./ICharacter.cpp ./Character.cpp ./IMateriaSource.cpp ./MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

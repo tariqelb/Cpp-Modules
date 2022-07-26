@@ -5,21 +5,21 @@
 # include "ICharacter.hpp"
 # include <iostream>
 
-class cure : public AMateria
+class Cure : public AMateria
 {
 	private :
 		std::string	type;
 
 	public :
 		std::string const &	gettype() const;
-		cure*				colne() const;
+		Cure*				colne() const;
 		void				use(ICharacter& target);
 
-	cure();
-	cure(std::string type);
-	cure(const cure& rhs);
-	cure&	operator=(const cure& rhs);
-	~cure();
+	Cure();
+	Cure(std::string type);
+	Cure(const Cure& rhs);
+	Cure&	operator=(const Cure& rhs);
+	~Cure();
 };
 
 #endif

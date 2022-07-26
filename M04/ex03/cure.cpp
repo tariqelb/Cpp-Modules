@@ -1,25 +1,24 @@
-#include "cure.h"
+#include "Cure.h"
 
-cure::cure()
 {
-	std::cout << "Default cure constructor called" << std::endl;
+	std::cout << "Default Cure constructor called" << std::endl;
 }
 
-cure::cure(std::string type)
+Cure::Cure(std::string type)
 {
-	std::cout << "Overload cure constructor called" << std::endl;
+	std::cout << "Overload Cure constructor called" << std::endl;
 	this->type = type;
 }
 
-cure::cure(const cure& rhs)
+Cure::cure(const Cure& rhs)
 {
-	std::cout << "Copy cure constructor called" << std::endl;
+	std::cout << "Copy Cure constructor called" << std::endl;
 	this = &rhs;
 }
 
-cure&	cure::operatoe=(const cure& rhs)
+Cure&	Cure::operatoe=(const Cure& rhs)
 {
-	std::cout << "Copy assignment cure operator called" << std::endl;
+	std::cout << "Copy assignment Cure operator called" << std::endl;
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
@@ -27,23 +26,23 @@ cure&	cure::operatoe=(const cure& rhs)
 	return (*this);
 }
 
-cure::~cure()
+Cure::~Cure()
 {
-	std::cout << "Default cure destructor called" << std::endl;
+	std::cout << "Default Cure destructor called" << std::endl;
 }
 
-const std::string& cure::getType() const
+const std::string& Cure::getType() const
 {
 	return (this->type);
 }
 
-cure*	cure::clone() const
+Cure*	Cure::clone() const
 {
-	cure* cc = new cure();
+	Cure* cc = new Cure();
 	return (cc);
 }
 
-void	cure::use(ICharacter& target)
+void	Cure::use(ICharacter& target)
 {
 	std::cout << "Cure: \"* heals " << target << "\'s wounds *\"" << std::endl;
 }

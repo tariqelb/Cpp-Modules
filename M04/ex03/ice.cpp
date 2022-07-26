@@ -1,23 +1,23 @@
-#include "ice.h"
+#include "Ice.h"
 
-ice::ice()
+Ice::Ice()
 {
 	std::cout << "Default ice constructor called" << std::endl;
 }
 
-ice::ice(std::string type)
+Ice::Ice(std::string type)
 {
 	std::cout << "Overload ice constructor called" << std::endl;
 	this->type = type;
 }
 
-ice::ice(const ice& rhs)
+Ice::Ice(const Ice& rhs)
 {
 	std::cout << "Copy ice constructor called" << std::endl;
 	this = &rhs;
 }
 
-ice&	ice::operatoe=(const ice& rhs)
+Ice&	Ice::operatoe=(const Ice& rhs)
 {
 	std::cout << "Copy assignment ice operator called" << std::endl;
 	if (this != &rhs)
@@ -27,23 +27,23 @@ ice&	ice::operatoe=(const ice& rhs)
 	return (*this);
 }
 
-ice::~ice()
+Ice::~Ice()
 {
 	std::cout << "Default ice destructor called" << std::endl;
 }
 
-const std::string& ice::getType() const
+const std::string& Ice::getType() const
 {
 	return (this->type);
 }
 
-ice*	ice::clone() const
+Ice*	Ice::clone() const
 {
-	ice* cc = new ice();
+	Ice* cc = new Ice();
 	return (cc);
 }
 
-void	ice::use(ICharacter& target)
+void	Ice::use(ICharacter& target)
 {
 	std::cout << "Ice: \"* shoots an ice bolt at " << target << " *\"" << std::endl;
 }

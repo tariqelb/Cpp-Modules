@@ -2,14 +2,14 @@
 # define AMATERIA_H
 
 # include <iostream>
-# include "ICharatcer.hpp"
+# include "ICharacter.hpp"
 
 class AMateria
 {
 	protected :
 		std::string	type;
 
-	puclic :
+	public :
 		std::string const &	getType() const;
 		virtual AMateria*	clone() const = 0;
 		virtual	void		use(ICharacter& target);
