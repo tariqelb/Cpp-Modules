@@ -33,7 +33,7 @@ Character::~Character()
 	std::cout << "Destructor of Character called" << std::endl;
 }
 
-const std::string &	Character::getname() const
+const std::string &	Character::getName() const
 {
 	return (this->name);
 }
@@ -50,5 +50,5 @@ void	Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	std::cout << target << " called" << std::endl;
+	std::cout << "target" << " called" << std::endl;
 }

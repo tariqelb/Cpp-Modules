@@ -1,4 +1,4 @@
-#include "Ice.h"
+#include "Ice.hpp"
 
 Ice::Ice()
 {
@@ -14,10 +14,10 @@ Ice::Ice(std::string type)
 Ice::Ice(const Ice& rhs)
 {
 	std::cout << "Copy ice constructor called" << std::endl;
-	this = &rhs;
+	*this = rhs;
 }
 
-Ice&	Ice::operatoe=(const Ice& rhs)
+Ice&	Ice::operator=(const Ice& rhs)
 {
 	std::cout << "Copy assignment ice operator called" << std::endl;
 	if (this != &rhs)
@@ -45,5 +45,5 @@ Ice*	Ice::clone() const
 
 void	Ice::use(ICharacter& target)
 {
-	std::cout << "Ice: \"* shoots an ice bolt at " << target << " *\"" << std::endl;
+	std::cout << "Ice: \"* shoots an ice bolt at " << "target" << " *\"" << std::endl;
 }

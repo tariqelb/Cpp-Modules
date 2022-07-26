@@ -1,17 +1,17 @@
 #include "AMateria.hpp"
 
-AMateria()
+AMateria::AMateria()
 {
 	std::cout << "Default AMateria constructor called" << std::cout;
 }
 
-AMateria(std::string const & type)
+AMateria::AMateria(std::string const & type)
 {
 	std::cout << "Overload AMateria constructor called" << std::endl;
 	this->type = type;
 }
 
-AMateria(const AMateria& rhs)
+AMateria::AMateria(const AMateria& rhs)
 {
 	std::cout << "Copy AMateria constructor called" << std::endl;
 	*this = rhs;
@@ -32,12 +32,12 @@ AMateria::~AMateria()
 	std::cout << "Destructor of AMateria called" << std::endl;
 }
 
-const std::string&	AMateria::getType() const;
+const std::string&	AMateria::getType() const
 {
 	return (this->type);
 }
 
-void	AMateria::use(const ICharacter& target)
+void	AMateria::use(ICharacter& target)
 {
-	std::cout << target << "ICharacter send message" << std::endl;
+	//std::cout << target.getName() << "ICharacter send message" << std::endl;
 }

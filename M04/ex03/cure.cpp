@@ -1,5 +1,6 @@
-#include "Cure.h"
+#include "Cure.hpp"
 
+Cure::Cure()
 {
 	std::cout << "Default Cure constructor called" << std::endl;
 }
@@ -10,13 +11,13 @@ Cure::Cure(std::string type)
 	this->type = type;
 }
 
-Cure::cure(const Cure& rhs)
+Cure::Cure(const Cure& rhs)
 {
 	std::cout << "Copy Cure constructor called" << std::endl;
-	this = &rhs;
+	*this = rhs;
 }
 
-Cure&	Cure::operatoe=(const Cure& rhs)
+Cure&	Cure::operator=(const Cure& rhs)
 {
 	std::cout << "Copy assignment Cure operator called" << std::endl;
 	if (this != &rhs)
@@ -44,5 +45,5 @@ Cure*	Cure::clone() const
 
 void	Cure::use(ICharacter& target)
 {
-	std::cout << "Cure: \"* heals " << target << "\'s wounds *\"" << std::endl;
+	std::cout << "Cure: \"* heals " << "target" << "\'s wounds *\"" << std::endl;
 }

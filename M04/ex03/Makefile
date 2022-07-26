@@ -1,10 +1,10 @@
 NAME = Interface
 
-SRCS = ./main.cpp ./AMateria.cpp ./Ice.cpp ./Cure.cpp ./ICharacter.cpp ./Character.cpp ./IMateriaSource.cpp ./MateriaSource.cpp
+SRCS = ./main.cpp ./AMateria.cpp ./Ice.cpp ./Cure.cpp ./Character.cpp ./MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-FLAGS =  -Werror -Wextra -Wall -std=c++98
+FLAGS =#  -Werror -Wextra -Wall -std=c++98
 
 all: $(NAME)
 

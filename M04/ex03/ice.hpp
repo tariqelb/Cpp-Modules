@@ -11,8 +11,8 @@ class Ice : public AMateria
 		std::string	type;
 
 	public :
-		std::string const &	gettype() const;
-		Ice*				colne() const;
+		std::string const &	getType() const;
+		Ice*				clone() const;
 		void				use(ICharacter& target);
 	
 	Ice();

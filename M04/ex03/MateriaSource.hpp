@@ -3,6 +3,12 @@
 
 # include "IMateriaSource.hpp"
 # include "AMateria.hpp"
+# include <string>
+
+# include "Ice.hpp"
+# include "Cure.hpp"
+class Ice;
+class Cure;
 
 class	MateriaSource : public IMateriaSource
 {

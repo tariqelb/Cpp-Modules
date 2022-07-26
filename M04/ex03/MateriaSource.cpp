@@ -14,7 +14,7 @@ MateriaSource::MateriaSource(const MateriaSource& rhs)
 MateriaSource& MateriaSource::operator=(const MateriaSource& rhs)
 {
 	std::cout << "copy assignment MateriaSource operator called" << std::endl;
-	return (this);
+	return (*this);
 }
 
 MateriaSource::~MateriaSource()
@@ -30,6 +30,10 @@ void	MateriaSource::learnMateria(AMateria* m)
 AMateria*	MateriaSource::createMateria(std::string const & type)
 {
 	std::cout << "create IMateria" << std::endl;
-	AMateria* tmp = new AMateria();
+	AMateria* tmp;
+	if (type.compare("ice") == 0)
+		tmp = new Ice();
+	else if (type.compare("cure") == 0)
+		tmp = new Cure();
 	return (tmp);
 }
