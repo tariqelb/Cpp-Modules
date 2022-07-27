@@ -14,7 +14,7 @@ int	main(void)
 	std::cout << B0 << std::endl;
 	std::cout << B1 << std::cout;
 
-	B0.incrementgrade();
+	B0.incrementGrade();
 	
 	std::cout << "Programe is continues running" << std::endl;
 	return (0);
