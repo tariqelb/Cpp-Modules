@@ -3,16 +3,15 @@
 
 int	main(void)
 {
-	Bureaucrat B0;
+	Bureaucrat B0("mo", 1);
 	Bureaucrat B1("me", 2);
 
-	B0 = B1;
 
 	B0.incrementGrade();
 	B1.decrementGrade();
 	
 	std::cout << B0 << std::endl;
-	std::cout << B1 << std::cout;
+	std::cout << B1 << std::endl;
 
 	B0.incrementGrade();
 	

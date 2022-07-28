@@ -44,9 +44,6 @@ class Bureaucrat
 		GradeTooLowException();
 		~GradeTooLowException() throw();
 	};
-
-	GradeTooHighException gExp;
-	GradeTooLowException lExp;
 };
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& rhs);
