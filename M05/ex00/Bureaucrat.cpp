@@ -1,9 +1,6 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-std::string GradeTooHighException = "Grade Too High Exception";
-std::string GradeTooLowException =  "Grade Too Low Exception";
-
 Bureaucrat::Bureaucrat()
 {
 	std::cout << "Default Bureaucrat constructor called" << std::cout;
@@ -25,23 +22,23 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& rhs)
 	std::cout << "Copy assignment Bureaucrat constructor called" << std::cout;
 	if (this != &rhs)
 	{
-		this->name = name;
-		this->grade = grade;
+		//this->name = rhs.name;
+		this->grade = rhs.grade;
 	}
 	return (*this);
 }
 
-Bureaucrat:Bureaucrat()
+Bureaucrat::~Bureaucrat()
 {
 	std::cout << "Destructor of Bureaucrat called" << std::endl;
 }
 
-const std::string	Bureaucrat::getName(void) const
+const std::string&	Bureaucrat::getName(void) const
 {
 	return (this->name);
 }
 
-const int	Bureaucrat::getGrade(void) const
+int	Bureaucrat::getGrade(void) const
 {
 	return (this->grade);
 }
@@ -51,12 +48,12 @@ void	Bureaucrat::incrementGrade(void)
 	try
 	{
 		if (this->getGrade() == 1)
-			throw(this->GradeTooHighException);
+			throw(this->gExp);
 		this->grade = this->getGrade() - 1;
 	}
-	catch (std::exception & e)
+	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cout << e << std::endl;
+		std::cout << e.getMessage() << std::endl;
 	}
 }
 
@@ -65,13 +62,28 @@ void	Bureaucrat::decrementGrade(void)
 	try
 	{
 		if (this->getGrade() == 150)
-			throw(this->GradeTooLowException);
+			throw(this->lExp);
 		this->grade = this->getGrade() + 1;
 	}
-	catch(std::exception & e)
+	catch(Bureaucrat::GradeTooLowException& e)
 	{
-		std::cout << GradeTooLowException << std::endl;
+		std::cout << e.getMessage() << std::endl;
 	}
+}
+
+Bureaucrat::GradeTooHighException::Bureaucrat::GradeTooHighException()
+{
+	this->msg = "Grade Too High Exception" << std::cout;
+}
+
+Bureaucrat::GradeTooLowException::~Bureaucrat::GradeTooLowException()
+{
+	this->msg = "Grade Too Low Exception" << std::cout;
+}
+
+std::string Bureaucrat::GradeTooLowException::getMessage(void) const
+{
+	return (this->msg);
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& rhs)
