@@ -24,10 +24,10 @@ class Bureaucrat
 	class GradeTooHighException : public std::exception
 	{
 		private :
-			std::string	msg;
+			const char *	msg;
 
 		public :
-			std::string	getMessage() const;
+			const char *	what() const throw();
 		
 		GradeTooHighException();
 		~GradeTooHighException() throw();
@@ -36,10 +36,10 @@ class Bureaucrat
 	class GradeTooLowException : public std::exception
 	{
 		private :
-			std::string	msg;
+			const char *	msg;
 
 		public :
-			std::string	getMessage() const;
+			const char *	what() const throw();
 		
 		GradeTooLowException();
 		~GradeTooLowException() throw();

@@ -6,7 +6,7 @@
 
 class Bureaucrat;
 
-Class Form
+class Form
 {
 	private :
 		const std::string 	name;
@@ -18,10 +18,9 @@ Class Form
 		const std::string	getName(void) const;
 		bool				getSign(void) const;
 		int					getGrade(void) const;
-		const int			getExecGrade(void) const;
+		int				getExecGrade(void) const;
 		void				beSigned(Bureaucrat& b);
-		void				signForm(Form f);
-
+		void				executeForm(Bureaucrat& b) const;
 
 	Form();
 	Form(const std::string name, bool sign, int grade, const int execGrade);
@@ -29,31 +28,31 @@ Class Form
 	Form&	operator=(const Form& rhs);
 	~Form();
 
-	class GradeToHighException
+	class GradeTooHighException
 	{
-		private ;
-			std::string	msg;
-		
-		public	:
-			std::string	getMessage() const;
+		private :
+			const char*	msg;
 
-		GradeToHighException();
-		~GradeToHighException() throw();
+		public	:
+			const char *	what() const throw();
+
+		GradeTooHighException();
+		~GradeTooHighException() throw();
 	};
 
-	class GradeToLowException : public std::exception
+	class GradeTooLowException : public std::exception
 	{
-		private ;
-			std::string	msg;
-		
-		public	:
-			std::string	getMessage() const;
+		private :
+			const char*	msg;
 
-		GradeToLowException();
-		~GradeToLowException() throw();
+		public	:
+			const char *	what() const throw();
+
+		GradeTooLowException();
+		~GradeTooLowException() throw();
 	};
 };
 
-std::ostrem&	operator<<(std::ostream& out, const Form& rhs);
+std::ostream&	operator<<(std::ostream& out, const Form& rhs);
 
 #endif

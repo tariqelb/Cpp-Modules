@@ -9,6 +9,25 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(std::string name, int grade):name(name), grade(grade)
 {
 	std::cout << "Overload Bureaucrat constructor called" << std::endl;
+	try
+	{
+		if (this->getGrade() <= 0)
+		{
+			throw(Bureaucrat::GradeTooHighException());
+		}
+		else if (this->getGrade() > 150)
+		{
+			throw(Bureaucrat::GradeTooLowException());
+		}
+	}
+	catch(Bureaucrat::GradeTooHighException& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& rhs)
@@ -52,7 +71,7 @@ void	Bureaucrat::incrementGrade(void)
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cout << e.getMessage() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 
@@ -66,14 +85,14 @@ void	Bureaucrat::decrementGrade(void)
 	}
 	catch(Bureaucrat::GradeTooLowException& e)
 	{
-		std::cout << e.getMessage() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException()
 {
 	std::cout << "Default GradeTooHighException constructor called" << std::endl;
-	this->msg = "Grade Too High Exception";
+	this->msg = "Exception : Grade Too High;
 }
 
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw()
@@ -81,7 +100,7 @@ Bureaucrat::GradeTooHighException::~GradeTooHighException() throw()
 	std::cout << "destructor of GradeTooHighException called" << std::endl;
 }
 
-std::string Bureaucrat::GradeTooHighException::getMessage(void) const
+const char *	 Bureaucrat::GradeTooHighException::what(void) const throw()
 {
 	return (this->msg);
 }
@@ -89,7 +108,7 @@ std::string Bureaucrat::GradeTooHighException::getMessage(void) const
 Bureaucrat::GradeTooLowException::GradeTooLowException()
 {
 	std::cout << "Default GradeTooLowException constructor called" << std::endl;
-	this->msg = "Grade Too Low Exception";
+	this->msg = "Exception : Grade Too Low";
 }
 
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
@@ -97,7 +116,7 @@ Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
 	std::cout << "destructor of GradeTooLowException called" << std::endl;
 }
 
-std::string Bureaucrat::GradeTooLowException::getMessage(void) const
+const char *	Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return (this->msg);
 }
