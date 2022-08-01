@@ -11,10 +11,10 @@ class RobotomyRequestForm : public Form
 
 	public :
 		void			execute(Bureaucrat const & b) const;
+		std::string		getTarget(void) const;
 
-	RobotomyRequestForm();
-	RobotomyRequestForm(std::string target);
-	RobotomyRequestForm(const RobotomyRequestForm& rhs);
+	RobotomyRequestForm(const std::string name, bool sign, int grade, const int execGrade, std::string target);
+	RobotomyRequestForm(const RobotomyRequestForm& rhs,const std::string name, bool sign, int grade, const int execGrade);
 	RobotomyRequestForm&	operator=(const RobotomyRequestForm& rhs);
 	~RobotomyRequestForm();
 };

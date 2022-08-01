@@ -1,9 +1,4 @@
 #include "ShrubberyCreationForm.hpp"
-/*
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-	std::cout << "Default ShrubberyCreationForm constructor called" << std::endl;
-}*/
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string name, bool sign, int grade, const int execGrade, std::string target):Form(name, sign, grade, execGrade)
 {
@@ -17,7 +12,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& rhs,co
 	*this = rhs;
 }
 
-//ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs, const std::string name, bool sign, int grade, const int execGrade):Form(name, sign, grade, execGrade)
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& rhs)
 {
 	std::cout << "Copy assignment ShrubberyCreationForm operator called" << std::endl;
@@ -27,11 +21,13 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	}
 	return (*this);
 }
+
 /*
-void	ShrubberyCreationForm::executeForm(Bureaucrat& b) const;
+void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
 {
-	stdd::cout "execute " << b.getName() << " Form" << std::endl;
-}*/
+	std::cout << "execute " << b.getName() << " Form" << std::endl;
+}
+*/
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
 {
@@ -54,4 +50,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
 	{
 		std::cout << e.what() << std::endl;
 	}
+}
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+	std::cout << "Destructor of ShrubberyCreationForm called" << std::endl;
 }

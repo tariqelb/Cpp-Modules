@@ -10,6 +10,10 @@ int	main(void)
 	std::cout << "1--------------------------------" << std::endl;
 	Bureaucrat B0("low", 2);
 	Bureaucrat B1("katakori", 3);
+	std::cout << "2--------------------------------" << std::endl;
+	Sh->getName();
+	std::cout << "3--------------------------------" << std::endl;
+	delete Sh;
 /*	
 	Form f0("B0_form", false, B0.getGrade(), 1);
 	Form f1("B1_form", false, B1.getGrade(), 1);

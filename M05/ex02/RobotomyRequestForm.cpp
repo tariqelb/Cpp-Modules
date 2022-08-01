@@ -1,19 +1,15 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm()
-{
-	std::cout << "Default RobotomyRequestForm constructor called" << std::endl;
-}
-
-RobotomyRequestForm(std::string target):target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string name, bool sign, int grade, const int execGrade, std::string target):Form(name, sign, grade, execGrade)
 {
 	std::cout << "Overload RobotomyRequestForm constructor called" << std::endl;
+	this->target = target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs,const std::string name, bool sign, int grade, const int execGrade ):Form(name, sign, grade, execGrade)
 {
-	std::cout << "Copy RobotomyRequestForm constructor called" << stdd::endl;
-	*thus = rhs;
+	std::cout << "Copy RobotomyRequestForm constructor called" << std::endl;
+	*this = rhs;
 }
 
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& rhs)
@@ -30,19 +26,19 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 	std::cout << "Destructor of RobotomyRequestForm called" << std::endl;
 }
-
-void	RobotomyRequestForm::executeForm(Bureaucrat& b) const;
+/*
+void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 {
-	stdd::cout "execute " << b.getName() << " Form" << std::endl;
+	std::cout << "execute " << b.getName() << " Form" << std::endl;
 }
-
+*/
 void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 {
 	try
 	{
 		if (this->getSign())
 		{
-			if (b.getExecGradeGrade() <= this->getExecGrade() && b.getGrade <= this->getGrade())
+			if (b.getGrade() <= this->getExecGrade() && b.getGrade() <= this->getGrade())
 			{
 				std::cout << this->getName() << " execute the ";
 				std::cout  << b.getName() << " Bureaucrat" << std::endl;
@@ -51,10 +47,14 @@ void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 				throw(RobotomyRequestForm::GradeTooLowException());
 		}
 		else
-			throw(RobotomyRequestForm::GradeTooLowException())
+			throw(RobotomyRequestForm::GradeTooLowException());
 	}
 	catch (RobotomyRequestForm::GradeTooLowException& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+}
+std::string	getTarget(void) const
+{
+	return (this->target);
 }
