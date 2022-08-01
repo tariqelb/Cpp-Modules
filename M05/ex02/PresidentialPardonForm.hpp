@@ -8,13 +8,14 @@ class PresidentialPardonForm : public Form
 {
 	private :
 		std::string	target;
+		//PresidentialPardonForm();
 
 	public :
 		void			execute(Bureaucrat const & b) const;
 		std::string		getTarget(void) const;
 
-	PresidentialPardonForm(const std::string name, bool sign, int grade, const int execGrade, std::string target);
-	PresidentialPardonForm(const PresidentialPardonForm& rhs,const std::string name, bool sign, int grade, const int execGrade);
+	PresidentialPardonForm(std::string target);
+	PresidentialPardonForm(const PresidentialPardonForm& rhs);
 	PresidentialPardonForm&	operator=(const PresidentialPardonForm& rhs);
 	~PresidentialPardonForm();
 };

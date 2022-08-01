@@ -13,6 +13,7 @@ class Form
 		bool			sign;
 		int			grade;
 		const int		execGrade;
+		//Form(void);
 
 	public :
 		const std::string	getName(void) const;
@@ -21,6 +22,7 @@ class Form
 		int			getExecGrade(void) const;
 		void			beSigned(Bureaucrat& b);
 		virtual void		execute(Bureaucrat const & b) const = 0;
+		virtual std::string	getTarget(void) const = 0;
 	
 	Form(const std::string name, bool sign, int grade, const int execGrade);
 	Form(const Form& rhs);

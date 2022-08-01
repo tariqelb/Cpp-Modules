@@ -19,7 +19,8 @@ class Bureaucrat
 		void			incrementGrade(void);
 		void			decrementGrade(void);
 		void			signForm(Form& f);
-		
+		void			executeForm(Form const & form);	
+
 	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat& rhs);

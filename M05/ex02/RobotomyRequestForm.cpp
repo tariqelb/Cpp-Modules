@@ -1,12 +1,12 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string name, bool sign, int grade, const int execGrade, std::string target):Form(name, sign, grade, execGrade)
+RobotomyRequestForm::RobotomyRequestForm(std::string target):Form("RobotomyRequestForm", false, 25, 5)
 {
 	std::cout << "Overload RobotomyRequestForm constructor called" << std::endl;
 	this->target = target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs,const std::string name, bool sign, int grade, const int execGrade ):Form(name, sign, grade, execGrade)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs):Form("RobotomyRequestForm", false, 25, 5)
 {
 	std::cout << "Copy RobotomyRequestForm constructor called" << std::endl;
 	*this = rhs;
@@ -22,16 +22,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 	return (*this);
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
-{
-	std::cout << "Destructor of RobotomyRequestForm called" << std::endl;
-}
-/*
-void	RobotomyRequestForm::execute(Bureaucrat const & b) const
-{
-	std::cout << "execute " << b.getName() << " Form" << std::endl;
-}
-*/
+
 void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 {
 	try
@@ -54,7 +45,13 @@ void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 		std::cout << e.what() << std::endl;
 	}
 }
-std::string	getTarget(void) const
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+	std::cout << "Destructor of RobotomyRequestForm called" << std::endl;
+}
+
+std::string	RobotomyRequestForm::getTarget(void) const
 {
 	return (this->target);
 }

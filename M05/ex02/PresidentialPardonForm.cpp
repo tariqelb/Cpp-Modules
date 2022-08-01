@@ -1,12 +1,12 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string name, bool sign, int grade, const int execGrade, std::string target):Form(name, sign, grade, execGrade)
+PresidentialPardonForm::PresidentialPardonForm(std::string target):Form("PresidentialPardonForm", false, 72, 45)
 {
 	std::cout << "Overload PresidentialPardonForm constructor called" << std::endl;
 	this->target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& rhs,const std::string name, bool sign, int grade, const int execGrade ):Form(name, sign, grade, execGrade)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& rhs):Form("PresidentialPardonForm", false, 72, 45)
 {
 	std::cout << "Copy PresidentialPardonForm constructor called" << std::endl;
 	*this = rhs;
@@ -21,11 +21,6 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 	}
 	return (*this);
 }
-/*
-void	PresidentialPardonForm::executeForm(Bureaucrat& b) const
-{
-	std::cout << "execute " << b.getName() << " Form" << std::endl;
-}*/
 
 void	PresidentialPardonForm::execute(Bureaucrat const & b) const
 {
@@ -53,4 +48,9 @@ void	PresidentialPardonForm::execute(Bureaucrat const & b) const
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 	std::cout << "Destructor of PresidentialPardonForm called" << std::endl;
+}
+
+std::string	PresidentialPardonForm::getTarget(void) const
+{
+	return (this->target);
 }

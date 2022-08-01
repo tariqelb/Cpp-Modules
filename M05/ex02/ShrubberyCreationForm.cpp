@@ -1,12 +1,12 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string name, bool sign, int grade, const int execGrade, std::string target):Form(name, sign, grade, execGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):Form("ShrubberyCreationForm", false, 145, 137)
 {
 	std::cout << "Overload ShrubberyCreationForm constructor called" << std::endl;
 	this->target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& rhs,const std::string name, bool sign, int grade, const int execGrade ):Form(name, sign, grade, execGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& rhs):Form("ShrubberyCreationForm", false, 145, 137)
 {
 	std::cout << "Copy ShrubberyCreationForm constructor called" << std::endl;
 	*this = rhs;
@@ -22,23 +22,24 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-/*
-void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
-{
-	std::cout << "execute " << b.getName() << " Form" << std::endl;
-}
-*/
-
 void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
 {
 	try
 	{
 		if (this->getSign())
 		{
-			if (/*b.getExecGrade() <= this->getExecGrade() &&*/ b.getGrade() <= this->getGrade())
+			if ( b.getGrade() <= this->getGrade())
 			{
-				std::cout << this->getName() << " execute the ";
-				std::cout  << b.getName() << " Bureaucrat" << std::endl;
+				std::string	name;
+				name = this.getTarget() + "_shrubbery";
+				std::ofstream tree;
+				tree.open(name, std::ios::trunc | std::ios::out);
+				if (!tree.isopen())
+				{
+					std::err << "File doesn't open" << std::endl;
+					tree.close();
+				}
+				//drow the tree;
 			}
 			else
 				throw(ShrubberyCreationForm::GradeTooLowException());
@@ -51,7 +52,13 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
 		std::cout << e.what() << std::endl;
 	}
 }
+
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	std::cout << "Destructor of ShrubberyCreationForm called" << std::endl;
+}
+
+std::string	ShrubberyCreationForm::getTarget(void) const
+{
+	return (this->target);
 }

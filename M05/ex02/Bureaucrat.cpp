@@ -142,3 +142,15 @@ void	Bureaucrat::signForm(Form& f)
 	}
 }
 
+void	Bureaucrat::execcuteForm(Form const & form)
+{
+	try 
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName();
+	}
+	catch (Bureaucrat::GradeTooLowException& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}

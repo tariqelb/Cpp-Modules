@@ -6,12 +6,14 @@
 
 int	main(void)
 {
-	Form*	Sh = new ShrubberyCreationForm("Fzero", false, 137, 147, "Fommila");
+	Form*	Sh = NULL;
+	Sh = new ShrubberyCreationForm("Fommila");
 	std::cout << "1--------------------------------" << std::endl;
 	Bureaucrat B0("low", 2);
 	Bureaucrat B1("katakori", 3);
-	std::cout << "2--------------------------------" << std::endl;
-	Sh->getName();
+	std::cout << "2iii--------------------------------" << std::endl;
+	std::cout << Sh->getTarget() << std::endl;
+	std::cout << Sh->getName() << std::endl;
 	std::cout << "3--------------------------------" << std::endl;
 	delete Sh;
 /*	
