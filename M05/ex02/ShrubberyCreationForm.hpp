@@ -3,6 +3,7 @@
 
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
+# include <fstream>
 
 class ShrubberyCreationForm : public Form
 {
@@ -19,5 +20,7 @@ class ShrubberyCreationForm : public Form
 	ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& rhs);
 	~ShrubberyCreationForm();
 };
+
+void	ft_draw_tree(std::ofstream& ofile);
 
 #endif

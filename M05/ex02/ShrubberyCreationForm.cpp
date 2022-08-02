@@ -31,15 +31,17 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
 			if ( b.getGrade() <= this->getGrade())
 			{
 				std::string	name;
-				name = this.getTarget() + "_shrubbery";
-				std::ofstream tree;
-				tree.open(name, std::ios::trunc | std::ios::out);
-				if (!tree.isopen())
+				std::ofstream ofile;
+
+				name = this->getTarget() + "_shrubbery";
+				ofile.open(name, std::ios::trunc | std::ios::out);
+				if (!ofile.is_open())
 				{
-					std::err << "File doesn't open" << std::endl;
-					tree.close();
+					std::cerr << "File doesn't open" << std::endl;
+					ofile.close();
 				}
-				//drow the tree;
+				ft_draw_tree(ofile);
+				ofile.close();
 			}
 			else
 				throw(ShrubberyCreationForm::GradeTooLowException());
@@ -51,6 +53,20 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & b) const
 	{
 		std::cout << e.what() << std::endl;
 	}
+}
+
+void	ft_draw_tree(std::ofstream& ofile)
+{
+	ofile << "      /\\ " << std::endl;
+	ofile << "     //\\\\ " << std::endl;
+	ofile << "    ///\\\\\\" << std::endl;
+	ofile << "   ////\\\\\\\\" << std::endl;
+	ofile << "  ////||\\\\\\\\" << std::endl;
+	ofile << "      ||" << std::endl;
+	ofile << "      ||" << std::endl;
+	ofile << "      ||" << std::endl;
+	ofile << "      ||" << std::endl;
+	ofile << "   - -- -- -" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
