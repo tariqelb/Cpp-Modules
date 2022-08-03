@@ -18,8 +18,7 @@ Intern::Intern(const Intern& rhs)
 Intern&	Intern::operator=(const Intern& rhs)
 {
 	std::cout << "Copy assinment Intern  constructor called" << std::endl;
-	if (this != &rhs)
-		return (*this);
+	(void)rhs;
 	return (*this);
 }
 
@@ -48,11 +47,12 @@ int	Sweetcher(std::string name)
 	return (-1);
 }
 
-Form*	Intern::makeForm(std::string name, std::string target)
+Form*	Intern::makeForm(const std::string& name, const std::string& target)
 {
 	Form*		rhs;
 	int		index;
 	
+	rhs = NULL;
 	index = Sweetcher(name);
 	try
 	{
@@ -87,7 +87,13 @@ Form*	Intern::makeForm(std::string name, std::string target)
 	catch (char const * e)
 	{
 		std::cerr << e << std::endl;
-		return (NULL);
 	}
 	return (rhs);
+}
+
+std::ofstream&	operator<<(std::ofstream& out, const Intern& rhs)
+{
+	(void)rhs;
+	out << "Intern" << std::endl;
+	return (out);
 }
