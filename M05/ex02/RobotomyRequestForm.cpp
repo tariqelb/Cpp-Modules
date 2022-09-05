@@ -37,9 +37,6 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& r
 
 void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 {
-	std::string err;
-	
-	err = this->getTarget() + ": The robotomy failed.";
 	try
 	{
 		if (this->getSign())
@@ -49,9 +46,20 @@ void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 				std::cout << "Stupied writer how can i make noise wthout a ";
 				std::cout << "function that make sounds, buuh our life";
 				std::cout << " go with peaple like that." << std::endl;
-				std::cout << this->getTarget();
-				std::cout << " has been robotomized successfully 50% of the time.";
-				std::cout <<  std::endl;
+				srand(time(0));
+				if ((rand() % 2) == 1)
+				{
+					std::cout << this->getTarget();
+					std::cout << " has been robotomized successfully.";
+					std::cout <<  std::endl;
+				}
+				else
+				{	
+					std::cout << this->getTarget();
+					std::cout << " robotomy failed.";
+					std::cout <<  std::endl;
+				}
+
 			}
 			else
 				throw(RobotomyRequestForm::GradeTooLowException());
@@ -61,7 +69,6 @@ void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 	}
 	catch (RobotomyRequestForm::GradeTooLowException& e)
 	{
-		std::cerr << err << std::endl;
 		std::cerr << e.what() << std::endl;
 	}
 }

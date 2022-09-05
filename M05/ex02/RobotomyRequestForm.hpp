@@ -15,6 +15,7 @@
 
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
+# include <cstdlib>
 
 class RobotomyRequestForm : public Form
 {

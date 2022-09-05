@@ -48,6 +48,7 @@ int	main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	Ro->execute(B1);
 	std::cout << "6--------------------------------" << std::endl;
 	try
 	{
@@ -57,11 +58,12 @@ int	main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	Pr->execute(B2);
 	std::cout << Pr->getSign() << std::endl;
 	std::cout << "7--------------------------------" << std::endl;
-	B2.executeForm(*Ro);
+	B0.executeForm(*Ro);
 	std::cout << "8--------------------------------" << std::endl;
-	B0.executeForm(*Sh);
+	B1.executeForm(*Sh);
 	std::cout << "9--------------------------------" << std::endl;
 	B1.executeForm(*Pr);
 	std::cout << "10--------------------------------" << std::endl;
