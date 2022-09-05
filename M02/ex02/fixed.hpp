@@ -1,14 +1,26 @@
-#ifndef _FIXED_H_
-# define _FIXED_H_
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/19 19:17:13 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/20 13:59:47 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
-#include <cmath>
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+# include <iostream>
+# include <cmath>
 
 class Fixed
 {
 	private:
-		int			fixedPoint;
-		static  int const	fractalBit = 8;
+		int					fixedPoint;
+		static int const	fractalBit;
 
 	public:
 		int		getRawBits(void) const;

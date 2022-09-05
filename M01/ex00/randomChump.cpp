@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 11:38:59 by tel-bouh          #+#    #+#             */
-/*   Updated: 2022/09/01 14:36:11 by tel-bouh         ###   ########.fr       */
+/*   Created: 2022/08/16 18:10:07 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/17 21:35:24 by tel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#include "Zombie.hpp"
 
-# include "Brain.hpp"
-# include "Animal.hpp"
-
-
-class Dog : public Animal
+void    randomChump(std::string name)
 {
-	private :
-		Brain* br;
-
-	public :
-		void				makeSound(void) const;
-		const std::string&	getType() const;	
-		Brain*				getBrain() const;
-
-	Dog();
-	Dog(std::string type);
-	Dog(const Dog& rhs);
-	Dog&	operator=(const Dog& rhs);
-	~Dog();
-};
-
-#endif
+    Zombie zom(name);
+	zom.announce();
+}

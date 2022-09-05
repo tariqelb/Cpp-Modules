@@ -1,7 +1,18 @@
-#ifndef FORM_H
-# define FORM_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/02 12:19:22 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 15:40:06 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include <iostream>
+#ifndef FORM_HPP
+# define FORM_HPP
+
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -11,24 +22,22 @@ class Form
 	private :
 		const std::string 	name;
 		bool				sign;
-		int					grade;
-		const int			execGrade;
+		const int			signGrade;
+		const int			executeGrade;
 
 	public :
 		const std::string	getName(void) const;
 		bool				getSign(void) const;
-		int					getGrade(void) const;
-		int				getExecGrade(void) const;
+		int					getSignGrade(void) const;
+		int					getExecuteGrade(void) const;
 		void				beSigned(Bureaucrat& b);
-		void				executeForm(Bureaucrat& b) const;
 
-	Form();
-	Form(const std::string name, bool sign, int grade, const int execGrade);
+	Form(std::string name, int signGrade, int executeGrade);
 	Form(const Form& rhs);
 	Form&	operator=(const Form& rhs);
 	~Form();
 
-	class GradeTooHighException
+	class GradeTooHighException : public std::exception
 	{
 		private :
 			const char*	msg;

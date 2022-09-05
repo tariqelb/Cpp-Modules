@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/20 18:59:41 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/21 20:21:47 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
@@ -9,7 +21,7 @@ ClapTrap::ClapTrap(std::string name):name(name)
 {
 	std::cout << "Overload ClapTrap constructor called" << std::endl;
 	hitPoints = 10;
-	energyPoints = 5;
+	energyPoints = 10;
 	attackDamage = 0;
 }
 

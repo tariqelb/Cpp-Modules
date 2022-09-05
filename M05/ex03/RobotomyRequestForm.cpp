@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 16:44:17 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 16:57:00 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target):Form("RobotomyRequestForm", false, 25, 5)
+RobotomyRequestForm::RobotomyRequestForm(std::string target):Form("RobotomyRequestForm", 25, 5)
 {
 	std::cout << "Overload RobotomyRequestForm constructor called" << std::endl;
 	this->target = target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs):Form("RobotomyRequestForm", false, 25, 5)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rhs):Form("RobotomyRequestForm", 25, 5)
 {
 	std::cout << "Copy RobotomyRequestForm constructor called" << std::endl;
 	*this = rhs;
@@ -32,14 +44,14 @@ void	RobotomyRequestForm::execute(Bureaucrat const & b) const
 	{
 		if (this->getSign())
 		{
-			if (b.getGrade() <= this->getGrade())
+			if (b.getGrade() <= this->getExecuteGrade())
 			{
-				std::cout << "stupied writer how can i make noise wthout a ";
-				std::cout << "function who make sound buuh this is our life";
-				std::cout << " with peaple like that." << std::endl;
+				std::cout << "Stupied writer how can i make noise wthout a ";
+				std::cout << "function that make sounds, buuh our life";
+				std::cout << " go with peaple like that." << std::endl;
 				std::cout << this->getTarget();
 				std::cout << " has been robotomized successfully 50% of the time.";
-				std::cout  <<  std::endl;
+				std::cout <<  std::endl;
 			}
 			else
 				throw(RobotomyRequestForm::GradeTooLowException());

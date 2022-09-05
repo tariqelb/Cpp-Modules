@@ -1,13 +1,24 @@
-#ifndef WRONGCAT_H
-# define WRONGCAT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 11:14:09 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/31 13:18:32 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# include <iostream>
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
+
 # include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
 {
 	public :
-		void			makeSound(void) const;
+		void				makeSound(void) const;
 		const std::string	getType(void) const;
 
 	WrongCat();

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 11:13:20 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/30 12:42:28 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 Animal::Animal()
@@ -14,13 +26,13 @@ Animal::Animal(std::string type)
 
 Animal::Animal(const Animal& rhs)
 {
-	std::cout << "Copy Animal constructor called";
+	std::cout << "Copy Animal constructor called" << std::endl;
 	*this = rhs;
 }
 
 Animal& Animal::operator=(const Animal& rhs)
 {
-	std::cout << "Copy assignment Animal operator called";
+	std::cout << "Copy assignment Animal operator called" << std::endl;
 	if (this != &rhs)
 	{
 		this->type = rhs.type;

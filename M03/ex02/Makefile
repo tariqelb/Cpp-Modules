@@ -1,15 +1,30 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/20 19:05:17 by tel-bouh          #+#    #+#              #
+#    Updated: 2022/08/20 19:05:51 by tel-bouh         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = FragTrap
 
 SRCS = ./FragTrap.cpp ./ClapTrap.cpp ./main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-FLAGS = # -Werror -Wextra -Wall -std=c++98
+FLAGS =  -Werror -Wextra -Wall -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	g++ $(FLAGS) $(SRCS) -o $(NAME)
+
+.cpp.o:
+	g++ -c $(FLAGS) $< -o $@
 
 clean:
 	rm -rf $(OBJS)

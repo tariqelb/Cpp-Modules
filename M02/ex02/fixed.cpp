@@ -1,4 +1,18 @@
-#include "fixed.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/19 18:55:00 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/20 15:45:07 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
+
+int const Fixed::fractalBit = 8;
 
 // class member functions ----------------------------------
 
@@ -14,11 +28,13 @@ float	Fixed::toFloat() const
 
 int	Fixed::getRawBits(void) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return (fixedPoint);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
+	std::cout << "setRawBits member function called" << std::endl;
 	fixedPoint = raw;
 }
 
@@ -28,19 +44,19 @@ void	Fixed::setRawBits(int const raw)
 
 Fixed::Fixed()
 {
-	std::cout << "Default construtor called\n";
+	std::cout << "Default construtor called" << std::endl;
 	fixedPoint = 0;
 }
 
 Fixed::Fixed(const Fixed& rhs)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
 Fixed& Fixed::operator=(const Fixed& rhs)
 {
-	std::cout << "Copy assignment constructor called\n";
+	std::cout << "Copy assignment constructor called" << std::endl;
 	if (this != &rhs)
 		this->fixedPoint = rhs.getRawBits();
 	return (*this);
@@ -48,26 +64,26 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 
 Fixed::Fixed(int const fp)
 {
-	std::cout << "Int constructor called\n";
-	fixedPoint = fp << fractalBit;
+	std::cout << "Int constructor called" << std::endl;
+	fixedPoint = fp * (1 << fractalBit);
 }
 
 Fixed::Fixed(float const fp)
 {
-	std::cout << "Float constructor called\n";
+	std::cout << "Float constructor called" << std::endl;
 	fixedPoint = (int) (roundf(fp * (1 << fractalBit)));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Distructor called\n";
+	std::cout << "Distructor called" << std::endl;
 }
 
 //-------------------------------------------------------------------------
 
 // ostream function ------------------------------------------------
 
-std::ostream &operator<<(std::ostream& outStream, const Fixed& fixed)
+std::ostream&	operator<<(std::ostream& outStream, const Fixed& fixed)
 {
 	outStream << fixed.toFloat();
 	return (outStream);
@@ -79,10 +95,9 @@ std::ostream &operator<<(std::ostream& outStream, const Fixed& fixed)
 
 bool	Fixed::operator==(const Fixed& rhs) const
 {
-	std::cout << "overload comparing operator '==' \n";
 	if (this == &rhs)
 		return (true);
-	if (this->fixedPoint == rhs.getRawBits())
+	if (this->fixedPoint == rhs.fixedPoint)
 		return (true);
 	else
 		return (false);
@@ -90,10 +105,9 @@ bool	Fixed::operator==(const Fixed& rhs) const
 
 bool	Fixed::operator!=(const Fixed& rhs) const
 {
-	std::cout << "overload not equal operator\n";
 	if (this == &rhs)
 		return (false);
-	if (this->fixedPoint == rhs.fixedPoint)
+	if (this->fixedPoint == rhs.getRawBits())
 		return (false);
 	else
 		return (true);
@@ -101,8 +115,7 @@ bool	Fixed::operator!=(const Fixed& rhs) const
 
 bool	Fixed::operator>(const Fixed& rhs) const
 {
-	std::cout << "overload great than operator '>'\n";
-	if (this->fixedPoint > rhs.fixedPoint)
+	if (this->fixedPoint > rhs.getRawBits())
 		return (true);
 	else
 		return (false);
@@ -110,8 +123,7 @@ bool	Fixed::operator>(const Fixed& rhs) const
 
 bool	Fixed::operator<(const Fixed& rhs) const
 {
-	std::cout << "overload less than operator '<'\n";
-	if (this->fixedPoint < rhs.fixedPoint)
+	if (this->fixedPoint < rhs.getRawBits())
 		return (true);
 	else
 		return (false);
@@ -120,10 +132,9 @@ bool	Fixed::operator<(const Fixed& rhs) const
 
 bool	Fixed::operator>=(const Fixed& rhs) const
 {
-	std::cout << "overload great than or equal operator '>='\n";
 	if (this == &rhs)
 		return (true);
-	if (this->fixedPoint > rhs.fixedPoint)
+	if (this->fixedPoint >= rhs.getRawBits())
 		return (true);
 	else
 		return (false);
@@ -131,10 +142,9 @@ bool	Fixed::operator>=(const Fixed& rhs) const
 
 bool	Fixed::operator<=(const Fixed& rhs) const
 {
-	std::cout << "overload less than or equal operator '>='\n";	
 	if (this == &rhs)
 		return (true);
-	if (this->fixedPoint < rhs.fixedPoint)
+	if (this->fixedPoint <= rhs.getRawBits())
 		return (true);
 	else
 		return (false);
@@ -146,44 +156,36 @@ bool	Fixed::operator<=(const Fixed& rhs) const
 
 Fixed	Fixed::operator*(const Fixed& rhs)
 {
-	std::cout << "arithmetic '*' operator\n";
-	Fixed	temp(this->toFloat() * rhs.toFloat());	
+	Fixed	temp((this->fixedPoint * rhs.getRawBits()) / this->fractalBit);
 	return (temp);
 }
 
 Fixed	Fixed::operator/(const Fixed& rhs)
 {
-	std::cout << "arithmetic '/' operator\n";
-	if (rhs.toFloat() == 0)
-	{
-		Fixed temp(0);
-		std::cout << "Error division by zero\n";
-		return (temp);
-	}
+	Fixed temp;
+	
+	if (rhs.fixedPoint == 0)
+		std::cout << "Error division by zero" << std::endl;
 	else
-	{
-		Fixed	temp(this->toFloat() / rhs.toFloat());
-		return (temp);
-	}
+		temp.setRawBits((this->fixedPoint / rhs.getRawBits()) / this->fractalBit);
+	return (temp);
 }
 
 Fixed	Fixed::operator+(const Fixed& rhs)
 {
-	std::cout << "arithmetic '+' operator\n";
-	Fixed	temp(this->toFloat() + rhs.toFloat());	
+	Fixed temp(this->fixedPoint + rhs.getRawBits());
 	return (temp);
 }
 
 Fixed	Fixed::operator-(const Fixed& rhs)
 {
-	std::cout << "arithmetic '-' operator\n";
-	Fixed	temp(this->toFloat() - rhs.toFloat());	
+	Fixed	temp(this->fixedPoint - rhs.getRawBits());
 	return (temp);
 }
 
 //-----------------------------------------------------------------------------------------
 
-// comparision operators ----------------------------------------------------------------
+// de/increment operators ----------------------------------------------------------------
 
 Fixed&	Fixed::operator++()
 {
@@ -221,7 +223,7 @@ Fixed	Fixed::operator--(int)
 
 const Fixed& Fixed::constMin(const Fixed& rhs, const Fixed& lhs)
 {
-	if (rhs.toFloat() < lhs.toFloat())
+	if (rhs < lhs)
 		return (rhs);
 	else
 		return (lhs);
@@ -229,7 +231,7 @@ const Fixed& Fixed::constMin(const Fixed& rhs, const Fixed& lhs)
 	
 Fixed& Fixed::Min(Fixed& rhs, Fixed& lhs)
 {
-	if (rhs.toFloat() < lhs.toFloat())
+	if (rhs < lhs)
 		return (rhs);
 	else
 		return (lhs);
@@ -237,7 +239,7 @@ Fixed& Fixed::Min(Fixed& rhs, Fixed& lhs)
 
 const Fixed& Fixed::constMax(const Fixed& rhs, const Fixed& lhs)
 {
-	if (rhs.toFloat() > lhs.toFloat())
+	if (rhs > lhs)
 		return (rhs);
 	else
 		return (lhs);
@@ -245,7 +247,7 @@ const Fixed& Fixed::constMax(const Fixed& rhs, const Fixed& lhs)
 
 Fixed& Fixed::Max(Fixed& rhs, Fixed& lhs)
 {
-	if (rhs.toFloat() > lhs.toFloat())
+	if (rhs > lhs)
 		return (rhs);
 	else
 		return (lhs);

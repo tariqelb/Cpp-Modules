@@ -1,39 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/13 21:58:06 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/15 15:03:00 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#include <string>
-#include <iostream>
-#include <iomanip>
+# include <string>
+# include <iostream>
+# include <iomanip>
+# include "Contact.hpp"
+# include <exception>
 
-class contact
+class PhoneBook
 {
     private:
-        std::string  firstName;
-        std::string  lastName;
-        std::string  nickName;
-        std::string  phoneNumber;
-        std::string  darkestSecret;
-
-    public:
-        void    setFirstName(std::string s);
-        void    setLastName(std::string s);
-        void    setNickName(std::string s);
-        void    setPhoneNumber(std::string s);
-        void    setDarkestSecret(std::string s);
-        std::string  getFirstName(void);
-        std::string  getLastName(void);
-        std::string  getNickName(void);
-        std::string  getNumberPhone(void);
-        std::string  getDarkestSecret(void);
-    
-    contact();
-    ~contact();
-};
-
-class phoneBook
-{
-    private:
-        contact cnt[8];
+        Contact cnt[8];
         int     lastElem;
         int     numberOfElem;
 
@@ -41,12 +29,9 @@ class phoneBook
         void    addContact(void);
         void    searchContact(void);
         void    exitPrograme(void);
-        void    setLastElem(void);
-        int     getLastElem(void);
-        void    setNumberOfElem(void);
-        int     getNumberOfElem(void);
-    phoneBook();
-    ~phoneBook();
+    
+	PhoneBook();
+    ~PhoneBook();
 };
 
 #endif

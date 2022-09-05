@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 17:43:11 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 17:43:13 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -38,13 +50,11 @@ int	Sweetcher(std::string name)
 	};
 
 	index = 0;
-	while (index < 3)
+	while (index < 3 && theForm[index].compare(name))
 	{
-		if (theForm[index] == name)
-			return (index);
 		index++;
 	}
-	return (-1);
+	return (index);
 }
 
 Form*	Intern::makeForm(const std::string& name, const std::string& target)
@@ -89,11 +99,4 @@ Form*	Intern::makeForm(const std::string& name, const std::string& target)
 		std::cerr << e << std::endl;
 	}
 	return (rhs);
-}
-
-std::ofstream&	operator<<(std::ofstream& out, const Intern& rhs)
-{
-	(void)rhs;
-	out << "Intern" << std::endl;
-	return (out);
 }

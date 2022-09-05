@@ -1,16 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/20 19:04:23 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/21 20:46:46 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
-
-void	ScavTrap::guardGate(void)
-{
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
-}
-
-void	ScavTrap::attack(const std::string& target)
-{
-	std::cout << "ScavTrap " << this->name << " attack " << target << ", causing ";
-	std::cout << this->attackDamage << " point of damage!" << std::endl;
-	this->energyPoints = this->energyPoints - 1;
-}
 
 ScavTrap::ScavTrap()
 {
@@ -25,7 +25,7 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 	this->attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& rhs)//:ClapTrap(rhs.name)
+ScavTrap::ScavTrap(const ScavTrap& rhs)
 {
 	std::cout << "Copy constructor of ScavTrap called" << std::endl;
 	*this = rhs;
@@ -49,4 +49,18 @@ ScavTrap::~ScavTrap()
 	std::cout << "Distructor of ScavTrap called" << std::endl;
 }
 
+void	ScavTrap::guardGate(void)
+{
+	std::cout << "ScavTrap " << this->name << " is now in Gate keeper mode." << std::endl;
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+	if (this->hitPoints > 0 && this->energyPoints > 0)
+	{
+		std::cout << "ScavTrap " << this->name << " attack " << target << ", causing ";
+		std::cout << this->attackDamage << " point of damage!" << std::endl;
+		this->energyPoints = this->energyPoints - 1;
+	}
+}
 

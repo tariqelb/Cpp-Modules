@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 16:42:21 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 16:43:53 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
@@ -8,7 +20,6 @@ class PresidentialPardonForm : public Form
 {
 	private :
 		std::string	target;
-		//PresidentialPardonForm();
 
 	public :
 		void			execute(Bureaucrat const & b) const;

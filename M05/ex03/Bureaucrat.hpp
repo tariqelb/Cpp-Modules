@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 16:50:41 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 16:54:10 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -11,17 +23,16 @@ class Bureaucrat
 {
 	private :
 		const std::string	name;
-		int			grade;
+		int					grade;
 
 	public :
 		const std::string&	getName(void) const;
-		int			getGrade(void) const;
-		void			incrementGrade(void);
-		void			decrementGrade(void);
-		void			signForm(Form& f);
-		void			executeForm(Form const & form);	
+		int					getGrade(void) const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
+		void				signForm(Form& f);
+		void				executeForm(Form const & form);
 
-	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat& rhs);
 	Bureaucrat& operator=(const Bureaucrat& rhs);
@@ -33,7 +44,7 @@ class Bureaucrat
 			const char *	msg;
 
 		public :
-			const char*	what() const throw();		
+			const char*	what() const throw();
 
 		GradeTooHighException();
 		~GradeTooHighException() throw();
@@ -45,8 +56,8 @@ class Bureaucrat
 			const char *	msg;
 
 		public :
-			const char*	what() const throw();		
-		
+			const char*	what() const throw();
+
 		GradeTooLowException();
 		~GradeTooLowException() throw();
 	};

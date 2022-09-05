@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 17:39:09 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 17:43:01 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -15,7 +27,14 @@ int	main(void)
 	
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	rrf1 = someRandomIntern1.makeForm("hello bay", "leme");
-	rrf->beSigned(B0);
+	try
+	{
+		rrf->beSigned(B0);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	B0.executeForm(*rrf);
 	if (rrf != NULL)
 		delete rrf;

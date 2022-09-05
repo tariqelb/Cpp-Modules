@@ -1,28 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 16:05:55 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 16:06:41 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "Form.hpp"
-#include <iostream>
 
-
-Form::Form(const std::string name, bool sign, int grade, int execgrade):name(name), sign(sign), grade(grade), execGrade(execgrade)
+Form::Form(std::string name, int signGrade, int executeGrade):name(name), sign(false), signGrade(signGrade), executeGrade(executeGrade)
 {
 	std::cout << "Overload Form constructor called" << std::endl;
-	try
+	if (this->signGrade <= 0 || this->executeGrade <= 0)
 	{
-		if (this->getGrade() <= 0)
-			throw(Form::GradeTooHighException());
-		else if (this->getGrade() > 150)
-			throw(Form::GradeTooLowException());
+		throw(Form::GradeTooHighException());
 	}
-	catch (Form::GradeTooHighException& e)
+	else if (this->signGrade > 150 || this->executeGrade > 150)
 	{
-		std::cout << e.what() << std::endl;
-	}
-	catch (Form::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
+		throw(Form::GradeTooLowException());
 	}
 }
 
-Form::Form(const Form& rhs):name(rhs.name), sign(rhs.sign), grade(rhs.grade), execGrade(rhs.execGrade)
+Form::Form(const Form& rhs):name(rhs.name), signGrade(rhs.signGrade), executeGrade(rhs.executeGrade)
 {
 	std::cout << "Copy Form constructor called" << std::endl;
 	*this = rhs;
@@ -34,20 +36,19 @@ Form&	Form::operator=(const Form& rhs)
 	if (this != &rhs)
 	{
 		this->sign = rhs.sign;
-		this->grade = rhs.grade;
 	}
 	return (*this);
 }
 
 Form::~Form()
 {
-	std::cout << "Destructor of form called" << std::endl;
+	std::cout << "Destructor of Form called" << std::endl;
 }
 
 Form::GradeTooHighException::GradeTooHighException()
 {
 	std::cout << "Default GradeTooHighException constructor called" << std::endl;
-	this->msg = "Exception : Grade Too High";
+	this->msg = "Exception : Grade too high";
 }
 
 Form::GradeTooHighException::~GradeTooHighException() throw()
@@ -63,7 +64,7 @@ const char *	Form::GradeTooHighException::what() const throw()
 Form::GradeTooLowException::GradeTooLowException()
 {
 	std::cout << "Default GradeTooLowException constructor called" << std::endl;
-	this->msg = "Exception : Grade Too Low";
+	this->msg = "Exception : Grade too low";
 }
 
 Form::GradeTooLowException::~GradeTooLowException() throw()
@@ -86,36 +87,33 @@ bool	Form::getSign(void) const
 	return (this->sign);
 }
 
-int	Form::getGrade(void) const
+int	Form::getSignGrade(void) const
 {
-	return (this->grade);
+	return (this->signGrade);
 }
 
-int	Form::getExecGrade(void) const
+int	Form::getExecuteGrade(void) const
 {
-	return (this->execGrade);
+	return (this->executeGrade);
 }
 
 void	Form::beSigned(Bureaucrat& b)
-{	
-	try
-	{
-		if (b.getGrade() <= this->getGrade())
-			this->sign = true;
-		else
-			throw(Form::GradeTooLowException());
-	}
-	catch(Form::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+{
+	if (b.getGrade() <= this->getSignGrade())
+		this->sign = true;
+	else
+		throw(Form::GradeTooLowException());
 }
 
-std::ostream&	operator<<(std::ostream& out, Form& rhs)
+std::ostream&	operator<<(std::ostream& out, const Form& rhs)
 {
-	out << rhs.getName() << " ";
-	out << rhs.getSign() << " ";
-	out << rhs.getGrade() << " ";
-	out << rhs.getExecGrade();
+	out << "Form ";
+	out << rhs.getName();
+	out << " has sign ";
+	out << rhs.getSign();
+	out << " has signGrade ";
+	out << rhs.getSignGrade();
+	out << " has ExecuteGarde ";
+	out << rhs.getExecuteGrade();
 	return (out);
 }

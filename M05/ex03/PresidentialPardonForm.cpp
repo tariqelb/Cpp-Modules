@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 16:42:18 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 17:13:21 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target):Form("PresidentialPardonForm", false, 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(std::string target):Form("PresidentialPardonForm", 72, 45)
 {
 	std::cout << "Overload PresidentialPardonForm constructor called" << std::endl;
 	this->target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& rhs):Form("PresidentialPardonForm", false, 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& rhs):Form("PresidentialPardonForm", 72, 45)
 {
 	std::cout << "Copy PresidentialPardonForm constructor called" << std::endl;
 	*this = rhs;
@@ -28,7 +40,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & b) const
 	{
 		if (this->getSign())
 		{
-			if (b.getGrade() <= this->getGrade())
+			if (b.getGrade() <= this->getExecuteGrade())
 			{
 				std::cout << this->getTarget() ;
 				std::cout  << " has been pardoned by Zaphod Beeblebrox."<< std::endl;

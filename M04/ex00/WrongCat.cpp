@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 11:14:25 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/31 13:19:21 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat()
@@ -8,7 +20,7 @@ WrongCat::WrongCat()
 
 WrongCat::WrongCat(std::string type)
 {
-	std::cout << "Overload WrongCat constructor called";
+	std::cout << "Overload WrongCat constructor called" << std::endl;
 	this->type = type;
 }
 

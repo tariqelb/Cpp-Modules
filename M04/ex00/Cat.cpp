@@ -1,5 +1,15 @@
-#include <iostream>
-#include "Animal.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 11:13:23 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/31 13:16:46 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
 Cat::Cat()
@@ -23,7 +33,7 @@ Cat::Cat(const Cat& rhs)
 Cat&	Cat::operator=(const Cat& rhs)
 {
 	std::cout << "Copy assignment Cat operator called" << std::endl;
-	if (this != &rhs)
+if (this != &rhs)
 	{
 		this->type = rhs.type;
 	}

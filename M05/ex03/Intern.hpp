@@ -1,5 +1,17 @@
-#ifndef INTERN_H
-# define INTERN_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 17:30:28 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 17:39:03 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 # include <iostream>
 # include "Form.hpp"
@@ -14,7 +26,5 @@ class Intern
 	Intern&	operator=(const Intern& rhs);
 	~Intern();
 };
-
-std::ofstream&	operator<<(std::ofstream& out, const Intern& rhs);
 
 #endif

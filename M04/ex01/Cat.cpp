@@ -1,4 +1,15 @@
-#include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 11:39:20 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/30 18:46:39 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 #include "Cat.hpp"
 
@@ -6,14 +17,14 @@ Cat::Cat()
 {
 	std::cout << "Default Cat constructor called" << std::endl;
 	this->type = "Cat";
-	this->br = new Brain;
+	this->br = new Brain();
 }
 
 Cat::Cat(std::string type)
 {
 	std::cout << "Overload Cat constructor called" << std::endl;
 	this->type = type;
-	this->br = new Brain;
+	this->br = new Brain();
 }
 
 Cat::Cat(const Cat& rhs)
@@ -28,6 +39,8 @@ Cat&	Cat::operator=(const Cat& rhs)
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
+		this->br = new Brain();
+		*this->br = *rhs.getBrain();
 	}
 	return (*this);
 }
@@ -48,7 +61,7 @@ const std::string&	Cat::getType() const
 	return (this->type);
 }
 
-Brain*	&Cat::getBrain()
+Brain*	Cat::getBrain() const
 {
 	return (this->br);
 }

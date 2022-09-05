@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 16:44:08 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 16:44:10 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define  ROBOTOMYREQUESTFORM_HPP
 
@@ -8,7 +20,6 @@ class RobotomyRequestForm : public Form
 {
 	private :
 		std::string	target;
-		//RobotomyRequestForm();
 
 	public :
 		void			execute(Bureaucrat const & b) const;

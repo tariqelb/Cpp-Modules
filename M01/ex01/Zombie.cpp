@@ -1,34 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/16 17:37:01 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/16 18:40:17 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
-
-Zombie*     zombieHorde(int N, std::string name)
-{
-    Zombie* zom =  new Zombie[N];
-    int     i;
-
-    i = 0;
-    while (i < N)
-    {
-        zom[i].setName(name);
-        i++;
-    }
-    return (zom);
-}
 
 void    Zombie::announce(void)
 {
-    std::cout << getName() << ": BraiiiiiiinnnzzzZ...\n";
+    std::cout << this->getName() << ": BraiiiiiiinnnzzzZ...\n";
 }
 
-std::string Zombie::getName(void)
+std::string	Zombie::getName(void)
 {
-    return (name);
+    return (this->name);
 }
 
-void        Zombie::setName(std::string zName)
+void	Zombie::setName(std::string zName)
 {
-    name = zName;
+    this->name = zName;
 }
 
 Zombie::Zombie(){}
 
-Zombie::~Zombie(){}
+Zombie::Zombie(std::string zName):name(zName)
+{}
+
+Zombie::~Zombie()
+{
+	std::cout << "destructor of Zombie called" << std::endl;
+}

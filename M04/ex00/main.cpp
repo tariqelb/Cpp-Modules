@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 11:14:20 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/30 11:29:28 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iostream>
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include <iostream>
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
@@ -25,7 +37,7 @@ int	main()
    	std::cout << l->getType() << " --" << std::endl;
 	
 	std::cout << "---------------------------" << std::endl;
-	i->makeSound(); //will output the cat sound! j->makeSound();
+	i->makeSound(); //will output the cat sound! i->makeSound();
 	j->makeSound();
 	std::cout << "---------------------------" << std::endl;
 	k->makeSound();

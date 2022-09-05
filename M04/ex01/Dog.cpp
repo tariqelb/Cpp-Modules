@@ -1,4 +1,15 @@
-#include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 11:39:13 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/30 18:47:11 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 #include "Dog.hpp"
 
@@ -6,14 +17,14 @@ Dog::Dog()
 {
 	std::cout << "Default Dog constructor called" << std::endl;
 	this->type = "Dog";
-	this->br = new Brain;
+	this->br = new Brain();
 }
 
 Dog::Dog(std::string type)
 {
 	std::cout << "Overload Dog constructor called" << std::endl;
 	this->type = type;
-	this->br = new Brain;
+	this->br = new Brain();
 }
 
 Dog::Dog(const Dog& rhs)
@@ -28,6 +39,8 @@ Dog&	Dog::operator=(const Dog& rhs)
 	if (this != &rhs)
 	{
 		this->type = rhs.type;
+		this->br = new Brain();
+		*this->br = *rhs.getBrain();
 	}
 	return (*this);
 }
@@ -48,7 +61,7 @@ const std::string&	Dog::getType() const
 	return (type);
 }
 
-Brain*	&Dog::getBrain() 
+Brain*	Dog::getBrain() const 
 {
 	return (this->br);
 }

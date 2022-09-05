@@ -1,36 +1,31 @@
-#include <iostream>
-#include "Bureaucrat.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/02 09:41:40 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 15:54:27 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Bureaucrat::Bureaucrat()
-{
-	std::cout << "Default Bureaucrat constructor called" << std::endl;
-}
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade):name(name), grade(grade)
 {
 	std::cout << "Overload Bureaucrat constructor called" << std::endl;
-	try
+	if (this->grade <= 0)
 	{
-		if (this->getGrade() <= 0)
-		{
-			throw(Bureaucrat::GradeTooHighException());
-		}
-		else if (this->getGrade() > 150)
-		{
-			throw(Bureaucrat::GradeTooLowException());
-		}
+		throw(Bureaucrat::GradeTooHighException());
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	else if (this->grade > 150)
 	{
-		std::cout << e.what() << std::endl;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
+		throw(Bureaucrat::GradeTooLowException());
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& rhs)
+Bureaucrat::Bureaucrat(const Bureaucrat& rhs):name(rhs.name)
 {
 	std::cout << "Copy Bureaucrat constructor called" << std::endl;
 	*this = rhs;
@@ -63,41 +58,27 @@ int	Bureaucrat::getGrade(void) const
 
 void	Bureaucrat::incrementGrade(void)
 {
-	try
-	{
-		if (this->getGrade() == 1)
-			throw(Bureaucrat::GradeTooHighException());
-		this->grade = this->getGrade() - 1;
-	}
-	catch (Bureaucrat::GradeTooHighException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	if (this->getGrade() == 1)
+		throw(Bureaucrat::GradeTooHighException());
+	this->grade = this->getGrade() - 1;
 }
 
 void	Bureaucrat::decrementGrade(void)
 {
-	try
-	{
-		if (this->getGrade() == 150)
-			throw(Bureaucrat::GradeTooLowException());
-		this->grade = this->getGrade() + 1;
-	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	if (this->getGrade() == 150)
+		throw(Bureaucrat::GradeTooLowException());
+	this->grade = this->getGrade() + 1;
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException()
 {
 	std::cout << "Default GradeTooHighException constructor called" << std::endl;
-	this->msg = "Exception : Grade Too High;
+	this->msg = "Exception : Grade too high";
 }
 
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw()
 {
-	std::cout << "destructor of GradeTooHighException called" << std::endl;
+	std::cout << "Destructor of GradeTooHighException called" << std::endl;
 }
 
 const char *	 Bureaucrat::GradeTooHighException::what(void) const throw()
@@ -108,12 +89,12 @@ const char *	 Bureaucrat::GradeTooHighException::what(void) const throw()
 Bureaucrat::GradeTooLowException::GradeTooLowException()
 {
 	std::cout << "Default GradeTooLowException constructor called" << std::endl;
-	this->msg = "Exception : Grade Too Low";
+	this->msg = "Exception : Grade too low";
 }
 
 Bureaucrat::GradeTooLowException::~GradeTooLowException() throw()
 {
-	std::cout << "destructor of GradeTooLowException called" << std::endl;
+	std::cout << "Destructor of GradeTooLowException called" << std::endl;
 }
 
 const char *	Bureaucrat::GradeTooLowException::what(void) const throw()
@@ -123,8 +104,9 @@ const char *	Bureaucrat::GradeTooLowException::what(void) const throw()
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& rhs)
 {
-	out <<  rhs.getName();
+	out << rhs.getName();
 	out << ", Bureaucrat grade ";
 	out << rhs.getGrade();
+	out << ".";
 	return (out);
 }

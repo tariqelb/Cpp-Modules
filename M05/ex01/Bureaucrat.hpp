@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/02 12:00:54 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 15:40:04 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
 # include <iostream>
 # include "Form.hpp"
-
 
 class Form;
 
@@ -20,7 +31,6 @@ class Bureaucrat
 		void				decrementGrade(void);
 		void				signForm(Form& f);
 		
-	Bureaucrat();
 	Bureaucrat(std::string name, int grade);
 	Bureaucrat(const Bureaucrat& rhs);
 	Bureaucrat& operator=(const Bureaucrat& rhs);

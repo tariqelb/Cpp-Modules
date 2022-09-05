@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/16 19:17:10 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/16 19:22:13 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 
 int main()
@@ -10,13 +22,13 @@ int main()
     stringPTR = &str;
     stringREF = str;
 
-    std::cout << &str << "\n";
-    std::cout << stringPTR << "\n";
-    std::cout << &stringREF << "\n";
+    std::cout << &str << std::endl;
+    std::cout << &stringPTR << std::endl;
+    std::cout << &stringREF << std::endl;
 
-    std::cout << str << "\n";
-    std::cout << *stringPTR << "\n";
-    std::cout << stringREF << "\n";
+    std::cout << str << std::endl;
+    std::cout << *stringPTR << std::endl;
+    std::cout << stringREF << std::endl;
 
     return (0);
 }

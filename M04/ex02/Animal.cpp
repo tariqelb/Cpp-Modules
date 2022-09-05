@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/30 19:04:09 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/30 20:11:07 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 Animal::Animal()
@@ -25,4 +37,9 @@ Animal& Animal::operator=(const Animal& rhs)
 Animal::~Animal()
 {
 	std::cout << "Destructor of Animal called" << std::endl;
+}
+
+const std::string&	Animal::getType(void) const
+{
+	return (this->type);
 }

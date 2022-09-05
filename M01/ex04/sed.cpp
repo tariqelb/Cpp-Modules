@@ -1,36 +1,27 @@
-#include "main.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sed.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/17 15:04:29 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/18 18:05:04 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <sstream>
+#include "Sed.hpp"
 
-void    operation(std::string buff, int len)
+Sed::Sed(std::string replace):rep(replace){}
+
+Sed::~Sed(){}
+
+std::string    replaceString(Sed *fileObj, std::string buff)
 {
-    char    *split;
-    char    str[len + 1];
-    int     i;
-
-    i = 0;
-    strcpy(str, buff.c_str());
-
-    split = strtok(str, "\t\n\v\r ");     
-    while (split != NULL)
-    {
-        std::cout << split;
-        split = strtok(NULL, "\t\n\v\r ");
-        i++;
-    }
-    while (split[i])
-    {
-        std::cout << split[i];
-        i++;
-    }
-}
-
-std::string    replacestring(sed *fileObj, std::string buff)
-{
-    int pos;
-    int repLen;
     int buffLen;
+    int repLen;
     int s1Len;
+    int pos;
 
     repLen = fileObj->s2.length();
     pos = 0;
@@ -45,17 +36,21 @@ std::string    replacestring(sed *fileObj, std::string buff)
     return (buff);
 }
 
-void    sedFun(sed* fileObj)
+void    sedFun(Sed* fileObj)
 {
-    int                 len;
-    int                 i;
     std::stringstream   buffer;
     std::string         buff;
+    int                 len;
+    int                 i;
 
     buffer << fileObj->inFd.rdbuf();
+	if (buffer.fail())
+	{
+		std::cerr << "Fail to read the input file" << std::endl;
+		return;
+	}
     len = 0;
     i = 0;
-    int index;
     fileObj->buff = buffer.str();
     while (std::getline(buffer, buff))
     {
@@ -64,7 +59,7 @@ void    sedFun(sed* fileObj)
         else
             len = len + buff.length() + 1; 
         i++;
-        buff = replacestring(fileObj, buff);
+        buff = replaceString(fileObj, buff);
         fileObj->outFd << buff;
         if (fileObj->buff[len] == '\n')
             fileObj->outFd << "\n";

@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/30 11:38:59 by tel-bouh          #+#    #+#             */
-/*   Updated: 2022/09/01 14:36:11 by tel-bouh         ###   ########.fr       */
+/*   Created: 2022/08/17 15:03:48 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/17 18:37:04 by tel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef SED_H
+# define SED_H
 
-# include "Brain.hpp"
-# include "Animal.hpp"
+# include <iostream>
+# include <string>
+# include <fstream>
+# include <sstream>
 
 
-class Dog : public Animal
+class Sed
 {
-	private :
-		Brain* br;
+    public:
+        std::ifstream		inFd;
+        std::ofstream		outFd;
+        std::string			s1;
+        std::string			s2;
+        std::string			buff;
+		std::string			outputfile;
+		std::string const	rep;
 
-	public :
-		void				makeSound(void) const;
-		const std::string&	getType() const;	
-		Brain*				getBrain() const;
-
-	Dog();
-	Dog(std::string type);
-	Dog(const Dog& rhs);
-	Dog&	operator=(const Dog& rhs);
-	~Dog();
+	Sed(std::string rep);
+	~Sed();
 };
+
+void    sedFun(Sed* fileObj);
 
 #endif

@@ -1,26 +1,57 @@
-#include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/02 09:41:35 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 18:10:25 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 int	main(void)
 {
-	Bureaucrat B("mo", 0);
-	Bureaucrat B0("mo", 1);
-	Bureaucrat B1("me", 2);
-
-	std::cout << "--------------------" << std::endl;
-	std::cout << B.getGrade() << std::endl;
-	std::cout << "--------------------" << std::endl;
-	B0.incrementGrade();
-	B1.decrementGrade();
-	std::cout << "--------------------" << std::endl;
-	
-	std::cout << B0 << std::endl;
-	std::cout << B1 << std::endl;
-	std::cout << "--------------------" << std::endl;
-
-	B0.incrementGrade();
-	
-	std::cout << "--------------------" << std::endl;
-	std::cout << "Programe is continues running" << std::endl;
+	try 
+	{
+		Bureaucrat B("ma", 0);
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "------------------------------------------" << std::endl;
+	try 
+	{
+		Bureaucrat B0("mo", 1);
+		std::cout << B0 << std::endl;
+		std::cout << "**************************************" << std::endl;
+		try 
+		{
+			B0.incrementGrade();
+		}
+		catch (std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		std::cout << B0 << std::endl;
+		std::cout << "**************************************" << std::endl;
+		try 
+		{
+			B0.decrementGrade();
+		}
+		catch (std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		std::cout << B0 << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "------------------------------------------" << std::endl;
 	return (0);
 }

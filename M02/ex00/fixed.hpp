@@ -1,22 +1,34 @@
-#ifndef _FIXED_H_
-# define _FIXED_H_
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/19 15:48:28 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/19 20:07:12 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <iostream>
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+# include <iostream>
 
 class Fixed
 {
 	private:
-		int			fixedPoint;
-		static  int const	fractalBit = 8;
+		int					fixedPoint;
+		static int const	fractalBit;
 
 	public:
-		int	getRawBits(void) const;
+		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 	
-	Fixed(); // constructer
-	Fixed(Fixed& rfcp); // copy constructor
-	Fixed& operator=(Fixed& rfcp); // copy assignment operator
-	~Fixed(); // destructor
+	Fixed();
+	Fixed(Fixed& rhs);
+	Fixed& operator=(Fixed& rhs);
+	~Fixed();
 };
 
 #endif

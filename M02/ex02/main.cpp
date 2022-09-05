@@ -1,22 +1,39 @@
-#include "fixed.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/19 18:54:18 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/08/20 17:26:33 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
 #include <iostream>
 
 int	main( void )
 {
-/*	Fixed a;
+	Fixed a;
+	Fixed e;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 
 	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	e = Fixed( 1254.41f );
+	std::cout << "-------------------------------------\n";
+	std::cout << "a is " << a << " as Float" << std::endl;
+	std::cout << "b is " << b << " as Float" << std::endl;
+	std::cout << "c is " << c << " as Float" << std::endl;
+	std::cout << "d is " << d << " as Float" << std::endl;
+	std::cout << "-------------------------------------\n";
 	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << "-------------------------------------\n";
 	
 	if (b == c)
 		std::cout << "equal\n";
@@ -46,38 +63,33 @@ int	main( void )
 	if (a != b)
 		std::cout << "not equal\n";
 	else
-		std::cout << "not not equal \n";
+		std::cout << "equal \n";
+
+	if (d != b)
+		std::cout << "not equal\n";
+	else
+		std::cout << "equal \n";
+
+	
+	
+	std::cout << "-------------------------------------\n";
+	std::cout << "D fi = " << d.getRawBits() << std::endl; 
+	std::cout << "D i = " << d.toInt() << std::endl; 
+	std::cout << "D f = " << d.toFloat() << std::endl; 	
+	std::cout << "-------------------------------------\n";
+	std::cout << "--> " << Fixed::constMin(b, c) << std::endl;
+	std::cout << "--> " << Fixed::Min(a, e) << std::endl;
+	std::cout << "--> " << Fixed::constMax(b, c) << std::endl;
+	std::cout << "--> " << Fixed::Max(a, e) << std::endl;
+	std::cout << "-------------------------------------\n";
+	
+	a.setRawBits(0);
 
 	std::cout << "-------------------------------------\n";
-	std::cout << "a " << a << std::endl;
-	std::cout << "++a " << ++a << std::endl;
-	std::cout << "a++ "<< a++ << std::endl;
-	std::cout << "a " << a << std::endl;*/
-	
-	Fixed a;
-	Fixed n(0.25f);
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	Fixed const c( Fixed( 5.05f ) / Fixed( 2 ) );
-	Fixed const d( Fixed( 5.05f ) + Fixed( 2 ) );
-	Fixed const e( Fixed( 5.05f ) - Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << "a = " << a << std::endl;	
-	std::cout << "n = " << n << std::endl;	
-	std::cout << "b = " << b << std::endl;	
-	std::cout << "c = " << c << std::endl;	
-	std::cout << "d = " << d << std::endl;	
-	std::cout << "e = " << e << std::endl;	
-	
-	std::cout << "--> " << Fixed::constMin(b, c) << std::endl;
-	std::cout << "--> " << Fixed::Min(a, n) << std::endl;
-	std::cout << "--> " << Fixed::constMax(b, c) << std::endl;
-	std::cout << "--> " << Fixed::Max(a, n) << std::endl;
-
+	std::cout << "a   : " << a << std::endl;
+	std::cout << "++a : " << ++a << std::endl;
+	std::cout << "a++ : "<< a++ << std::endl;
+	std::cout << "a   : " << a << std::endl;
 
 	return 0;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/03 16:37:22 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/03 16:37:48 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define  SHRUBBERYCREATIONFORM_HPP
 
@@ -9,7 +21,6 @@ class ShrubberyCreationForm : public Form
 {
 	private :
 		std::string	target;
-		//ShrubberyCreationForm(void);
 
 	public :
 		void			execute(Bureaucrat const & b) const;
