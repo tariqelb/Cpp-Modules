@@ -6,7 +6,7 @@
 /*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:31:37 by tel-bouh          #+#    #+#             */
-/*   Updated: 2022/09/10 13:48:56 by tel-bouh         ###   ########.fr       */
+/*   Updated: 2022/09/10 15:45:23 by tel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,12 @@ class Array
 			}
 			return (*this);
 		}
+
 		T&	operator[](int index)
 		{
-			//try
-		//	{
-				if (index < 0 || (unsigned int) index >= this->len)
-					throw(std::exception());
-				return (this->arr[index]);
-		//	}
-			/*catch (std::exception& e)
-			{
-				std::cout << e.what() << std::endl;
-			}
-			return (NULL);*/
+			if (index < 0 || (unsigned int) index >= this->len)
+				throw(std::exception());
+			return (this->arr[index]);
 		}
 
 		~Array<T>()
