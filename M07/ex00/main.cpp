@@ -6,14 +6,14 @@
 /*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 13:01:43 by tel-bouh          #+#    #+#             */
-/*   Updated: 2022/09/10 11:29:33 by tel-bouh         ###   ########.fr       */
+/*   Updated: 2022/09/11 13:53:02 by tel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "whatever.hpp"
 
-/*
+
 int main( void )
 {
 	int a = 2;
@@ -33,8 +33,8 @@ int main( void )
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return 0;
-}*/
-
+}
+/*
 class Awesome
 {
 	public:
@@ -64,4 +64,4 @@ int main(void)
 	std::cout << min(a, b) << std::endl;
 	return (0);
 }
-
+*/
