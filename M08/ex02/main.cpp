@@ -1,41 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/19 15:43:24 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/19 15:43:41 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MutantStack.hpp"
 #include <iostream>
 #include <list>
-
-/*
-int	main()
-{
-	
-	MutantStack<int> ms;
-	MutantStack<int> ms2;
-	
-	ms.push(1);
-	ms.push(11);
-	ms.push(111);
-	std::cout << "--------" << std::endl;	
-	MutantStack<int>	ms1(ms);
-	std::cout << "--------" << std::endl;	
-	ms2 = ms;
-	std::cout << "--------" << std::endl;
-	ms2.push(5);
-	ms2.push(55);
-	ms2.push(555);
-	ms2.swap(ms);	
-	std::cout << "--------" << std::endl;
-	while (!ms.empty())
-	{
-		std::cout << "val = " << ms.top() << std::endl;
-		ms.pop();
-	}
-	std::cout << "--------" << std::endl;
-	while (!ms2.empty())
-	{
-		std::cout << "val = " << ms2.top() << std::endl;
-		ms2.pop();
-	}
-	return (0);
-}*/
-
 
 int main()
 {

@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/19 15:42:51 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/19 15:43:09 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
 # include <stack>
 # include <algorithm>
 # include <iostream>
-# include <typeinfo>
 
 template <typename T>
 class MutantStack : public std::stack<T>

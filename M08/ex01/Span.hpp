@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/19 15:41:00 by tel-bouh          #+#    #+#             */
+/*   Updated: 2022/09/19 15:41:26 by tel-bouh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
@@ -13,10 +25,10 @@ class Span
 		std::vector<int>	v;
 	
 	public:
-		void			addNumber(int n);
-		int			shortestSpan();
-		int			longestSpan();
-		void			addRange(std::vector<int> range);
+		void				addNumber(int n);
+		int					shortestSpan();
+		int					longestSpan();
+		void				addRange(std::vector<int> range);
 		std::vector<int>&	getVector(void);
 	
 	Span(unsigned int n);
