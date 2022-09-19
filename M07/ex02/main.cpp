@@ -6,7 +6,7 @@
 /*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:53:21 by tel-bouh          #+#    #+#             */
-/*   Updated: 2022/09/10 16:01:41 by tel-bouh         ###   ########.fr       */
+/*   Updated: 2022/09/11 14:20:04 by tel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,36 @@ int	main(void)
 	catch (std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "-------------------------" << std::endl;
+	index = 0;
+	Array<double> B1(5);
+	while (index < 5)
+	{
+		B1[index] = index * index;
+		index++;
+	}
+	Array<double> B2;
+	B2 = B1;
+	index = 0;
+	while (index < B2.size())
+	{
+		B2[index] = B2[index] + 1;
+		index++;
+	}
+	index = 0;
+	while (index < B1.size())
+	{
+		std::cout << "B1 :" << B1[index] << std::endl;
+		index++;
+	}
+	std::cout << "-------------------------" << std::endl;
+	index = 0;
+	while (index < B1.size())
+	{
+		std::cout << "B2 :" << B2[index] << std::endl;
+		index++;
 	}
 	return (0);
 }

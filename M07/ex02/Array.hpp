@@ -6,7 +6,7 @@
 /*   By: tel-bouh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:31:37 by tel-bouh          #+#    #+#             */
-/*   Updated: 2022/09/10 15:45:23 by tel-bouh         ###   ########.fr       */
+/*   Updated: 2022/09/11 14:15:33 by tel-bouh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ class Array
 			if (this != &rhs)
 			{
 				delete[] this->arr;
-				Array<T>(rhs.size);
+				this->len = rhs.size();
+				this->arr = new T[this->len];
 				int	i;
 
 				i = 0;
-				while (i < rhs.size())
+				while (i < (int) this->len)
 				{
-					arr[i] = rhs.getArr()[i];
+					arr[i] = rhs.arr[i];
 					i++;
 				}
 			}
@@ -68,13 +69,9 @@ class Array
 		{
 			delete [] this->arr;
 		}
-		int	size(void)
+		int	size(void) const
 		{
 			return (this->len);
-		}
-		T	getArr(void)
-		{
-			return (this->arr);
 		}
 };
 
