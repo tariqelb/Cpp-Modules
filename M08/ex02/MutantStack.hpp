@@ -4,6 +4,7 @@
 # include <stack>
 # include <algorithm>
 # include <iostream>
+# include <typeinfo>
 
 template <typename T>
 class MutantStack : public std::stack<T>

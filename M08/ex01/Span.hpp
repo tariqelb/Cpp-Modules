@@ -7,16 +7,17 @@
 
 class Span
 {
-	public:
+	private:
 		unsigned int		maxSize;
 		unsigned int		nElem;
 		std::vector<int>	v;
 	
 	public:
-		void	addNumber(int n);
-		int	shortestSpan();
-		int	longestSpan();
-		void	addRange(std::vector<int> range);
+		void			addNumber(int n);
+		int			shortestSpan();
+		int			longestSpan();
+		void			addRange(std::vector<int> range);
+		std::vector<int>&	getVector(void);
 	
 	Span(unsigned int n);
 	Span(const Span& rhs);
