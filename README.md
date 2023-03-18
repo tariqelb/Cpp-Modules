@@ -1,4 +1,4 @@
-# Cpp Modules: the tenth pjoject in 42 cursus.
+# Cpp Modules: Project number 10 in 1337 (42) cursus.
 
 The aim of this project is the learn the basic concept behand OOP.
 
