@@ -27,10 +27,10 @@ class Form
 
 	public :
 		const std::string	getName(void) const;
-		bool				getSign(void) const;
-		int					getSignGrade(void) const;
-		int					getExecuteGrade(void) const;
-		void				beSigned(Bureaucrat& b);
+		bool			getSign(void) const;
+		int			getSignGrade(void) const;
+		int			getExecuteGrade(void) const;
+		void			beSigned(Bureaucrat& b);
 		virtual void		execute(Bureaucrat const & b) const = 0;
 		virtual std::string	getTarget(void) const = 0;
 
